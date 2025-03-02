@@ -1,0 +1,6 @@
+@import "./ca.css";
+@import "./cb.css";
+
+.c {
+  display: grid;
+}

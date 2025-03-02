@@ -1,0 +1,12 @@
+{
+  "extends": ["./tsconfig.build.json"],
+  "compilerOptions": {
+    "rootDir": ".",
+    "noEmit": true,
+    "moduleResolution": "NodeNext",
+  },
+  "include": ["src", "test", "vitest.config.ts"],
+  "references": [
+    { "path": "../webpack-runtime-globals/tsconfig.build.json" },
+  ],
+}

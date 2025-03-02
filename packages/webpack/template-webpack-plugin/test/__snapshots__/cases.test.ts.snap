@@ -1,0 +1,35 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`template > template/defaults/compile-options > template/defaults/compile-options > template/defaults/compile-options - rspack > template/defaults/compile-options - rspack should run async 1`] = `
+{
+  "bundleModuleMode": "ReturnByFunction",
+  "debugInfoOutside": true,
+  "defaultDisplayLinear": true,
+  "enableCSSInvalidation": false,
+  "enableCSSSelector": true,
+  "enableFiberArch": true,
+  "enableLepusDebug": true,
+  "enableParallelElement": true,
+  "enableRemoveCSSScope": false,
+  "enableReuseContext": true,
+  "targetSdkVersion": "3.2",
+  "templateDebugUrl": "https://example.com/.rspeedy/main/debug-info.json",
+  "useLepusNG": true,
+}
+`;
+
+exports[`template > template/defaults/config > template/defaults/config > template/defaults/config - rspack > template/defaults/config - rspack should run async 1`] = `
+{
+  "enableA11y": true,
+  "enableAccessibilityElement": false,
+  "enableCSSInheritance": false,
+  "enableICU": false,
+  "enableNativeList": true,
+  "enableNewGesture": false,
+  "enableNewIntersectionObserver": true,
+  "lepusStrict": true,
+  "pipelineSchedulerConfig": 65536,
+  "removeDescendantSelectorScope": false,
+  "useNewSwiper": true,
+}
+`;

@@ -1,0 +1,23 @@
+WARNING in ./compat/get-node-ref/index.jsx
+⚠ ModuleWarning: BROKEN: getNodeRef on component instance is broken and MUST be migrated in ReactLynx 3.0, please use ref or lynx.createSelectorQuery instead.
+╭─[<LINE:COLUMN>]
+3  class App extends Component {
+4    componentDidMount() {
+5      this.getNodeRef('foo')
+·     ───────────┬──────────
+·                ╰── BROKEN: getNodeRef on component instance is broken and MUST be migrated in ReactLynx 3.0, please use ref or lynx.createSelectorQuery instead.
+6      this.getNodeRefFromRoot('bar')
+7    }
+╰────
+
+WARNING in ./compat/get-node-ref/index.jsx
+⚠ ModuleWarning: BROKEN: getNodeRefFromRoot on component instance is broken and MUST be migrated in ReactLynx 3.0, please use ref or lynx.createSelectorQuery instead.
+╭─[<LINE:COLUMN>]
+4    componentDidMount() {
+5      this.getNodeRef('foo')
+6      this.getNodeRefFromRoot('bar')
+·     ───────────────┬──────────────
+·                    ╰── BROKEN: getNodeRefFromRoot on component instance is broken and MUST be migrated in ReactLynx 3.0, please use ref or lynx.createSelectorQuery instead.
+7    }
+8
+╰────

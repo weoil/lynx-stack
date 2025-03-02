@@ -1,0 +1,19 @@
+ERROR in × Module build failed:
+╰─▶   × Expected identifier.
+╷
+1  ..foo {}
+^
+╵
+<PROJECT_ROOT>/packages/webpack/css-extract-webpack-plugin/test/diagnostic/error/sass/index.scss <LINE:COLUMN>  root stylesheet
+
+ERROR in ./error/sass/index.scss
+× Module build failed:
+╰─▶   ×   × Module build failed:
+╰─▶   × Expected identifier.
+╷
+1  ..foo {}
+^
+╵
+<PROJECT_ROOT>/packages/webpack/css-extract-webpack-plugin/test/diagnostic/error/sass/index.scss <LINE:COLUMN>  root stylesheet
+
+

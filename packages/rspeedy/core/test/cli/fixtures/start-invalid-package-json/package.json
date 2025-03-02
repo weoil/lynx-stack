@@ -1,0 +1,4 @@
+{
+  // This is a invalid package.json
+  "name": "invalid-package-json"
+}

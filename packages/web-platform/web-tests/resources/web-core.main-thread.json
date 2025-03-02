@@ -1,0 +1,30 @@
+{
+  "styleInfo": {},
+  "lepusCode": {
+    "root": "globalThis.runtime = lynx_runtime;globalThis.__lynx_worker_type = 'main'",
+    "/manifest-chunk.js": "module.exports = 'hello';",
+    "/manifest-chunk2.js": "module.exports = 'world';"
+  },
+  "manifest": {
+    "/app-service.js": "self.runtime = lynx_runtime; self.__lynx_worker_type = 'background'",
+    "/manifest-chunk.js": "module.exports = 'hello';",
+    "/manifest-chunk2.js": "module.exports = 'world';"
+  },
+  "customSections": {},
+  "cardType": "react",
+  "pageConfig": {
+    "enableFiberArch": true,
+    "useLepusNG": true,
+    "enableReuseContext": true,
+    "bundleModuleMode": "ReturnByFunction",
+    "templateDebugUrl": "",
+    "debugInfoOutside": true,
+    "defaultDisplayLinear": true,
+    "enableCSSInvalidation": true,
+    "enableCSSSelector": true,
+    "enableLepusDebug": false,
+    "enableParallelElement": true,
+    "enableRemoveCSSScope": true,
+    "targetSdkVersion": "2.10"
+  }
+}

@@ -1,0 +1,6 @@
+.test {
+    border-left-style:dashed double;
+    border-top-style:dotted solid ridge groove;
+    border-color:red blue blue red;
+    border-top-width:0.5px;
+}

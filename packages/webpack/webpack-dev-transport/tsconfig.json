@@ -1,0 +1,13 @@
+{
+  "extends": ["./tsconfig.build.json"],
+  "compilerOptions": {
+    "rootDir": ".",
+    "noEmit": true,
+  },
+  "include": [
+    "client",
+    "test",
+    "index.d.ts",
+    "vitest.config.ts",
+  ],
+}

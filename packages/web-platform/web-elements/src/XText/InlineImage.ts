@@ -1,0 +1,39 @@
+/*
+// Copyright 2024 The Lynx Authors. All rights reserved.
+// Licensed under the Apache License Version 2.0 that can be found in the
+// LICENSE file in the root directory of this source tree.
+*/
+import {
+  AttributeReactiveClass,
+  Component,
+  genDomGetter,
+  html,
+  registerAttributeHandler,
+} from '@lynx-js/web-elements-reactive';
+
+export class InlineImageAttributes
+  implements InstanceType<AttributeReactiveClass<typeof InlineImage>>
+{
+  static observedAttributes = ['src'];
+  #dom: InlineImage;
+  constructor(dom: InlineImage) {
+    this.#dom = dom;
+  }
+  #getImage = genDomGetter(() => this.#dom.shadowRoot!, '#img');
+
+  @registerAttributeHandler('src', true)
+  #handleSrc(newVal: string | null) {
+    if (newVal) this.#getImage().setAttribute('src', newVal);
+    else this.#getImage().removeAttribute('src');
+  }
+}
+
+/**
+ * @deprecated you can use `x-image` instead in `x-text`.
+ */
+@Component<typeof InlineImage>(
+  'inline-image',
+  [InlineImageAttributes],
+  html` <img id="img" part="img" /> `,
+)
+export class InlineImage extends HTMLElement {}

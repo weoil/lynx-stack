@@ -1,0 +1,34 @@
+{
+  "name": "@lynx-js/web-core",
+  "version": "0.6.2",
+  "private": false,
+  "description": "",
+  "keywords": [],
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "!dist/**/*.js.map",
+    "LICENSE.txt",
+    "Notice.txt",
+    "CHANGELOG.md",
+    "README.md",
+    "index.css",
+    "**/*.css"
+  ],
+  "dependencies": {
+    "@lynx-js/web-constants": "workspace:*",
+    "@lynx-js/web-worker-rpc": "workspace:*",
+    "@lynx-js/web-worker-runtime": "workspace:*"
+  },
+  "devDependencies": {
+    "@lynx-js/lynx-core": "0.1.0",
+    "@lynx-js/web-elements": "workspace:*"
+  },
+  "peerDependencies": {
+    "@lynx-js/lynx-core": "0.1.0",
+    "@lynx-js/web-elements": ">=0.1.0"
+  }
+}

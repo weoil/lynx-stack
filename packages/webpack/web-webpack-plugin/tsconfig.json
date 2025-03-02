@@ -1,0 +1,13 @@
+{
+  "extends": "../../../tsconfig.json",
+  "compilerOptions": {
+    "composite": true,
+    "baseUrl": "./",
+    "rootDir": "./src",
+    "outDir": "./dist",
+  },
+  "include": ["src"],
+  "references": [
+    { "path": "../../web-platform/web-style-transformer" },
+  ],
+}

@@ -1,0 +1,33 @@
+name: NodeJS Dependencies
+"on":
+  pull_request:
+    branches:
+      - main
+    paths:
+      - package.json
+      - pnpm-lock.yaml
+      - "**/package.json"
+permissions:
+  repository-projects: read
+  contents: read
+  actions: write
+  pull-requests: write
+  statuses: read
+env:
+  CI: 1
+  TURBO_TELEMETRY_DISABLED: 1
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  sherif:
+    runs-on: lynx-ubuntu-24.04-xlarge #todo: use medium once its ready
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: |
+          pnpm dedupe --check
+          pnpm dlx sherif@latest

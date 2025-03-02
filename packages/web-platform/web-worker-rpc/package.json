@@ -1,0 +1,19 @@
+{
+  "name": "@lynx-js/web-worker-rpc",
+  "version": "0.6.2",
+  "private": false,
+  "description": "",
+  "keywords": [],
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "!dist/**/*.js.map",
+    "LICENSE.txt",
+    "Notice.txt",
+    "CHANGELOG.md",
+    "README.md"
+  ]
+}

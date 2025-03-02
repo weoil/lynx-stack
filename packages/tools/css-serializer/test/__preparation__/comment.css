@@ -1,0 +1,25 @@
+/* some comment */
+
+/*! protected comment */
+
+/* some comment 2 */
+
+/*! protected comment 2 */
+
+a {
+  color: red;
+}
+
+/*! should not merge styles with different comments */
+b-1 {
+  color: red; /* line comment1*/
+}
+b-2 { /* line comment2*/
+  color: red;
+}
+
+/*! comment */
+c {
+  color: red;
+} /* line comment3*/
+

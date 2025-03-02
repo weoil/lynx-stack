@@ -1,0 +1,165 @@
+// Copyright 2024 The Lynx Authors. All rights reserved.
+// Licensed under the Apache License Version 2.0 that can be found in the
+// LICENSE file in the root directory of this source tree.
+
+import fs from 'node:fs'
+import { extname, isAbsolute, join } from 'node:path'
+import { pathToFileURL } from 'node:url'
+
+import color from 'picocolors'
+
+import { validate } from './validate.js'
+import { register } from '../../register/index.js'
+import { debug } from '../debug.js'
+
+import type { Config } from './index.js'
+
+export const resolveConfigPath = (
+  root: string,
+  customConfig?: string,
+): string => {
+  if (customConfig) {
+    debug(`load custom config file ${customConfig} from ${root}`)
+    const customConfigPath = isAbsolute(customConfig)
+      ? customConfig
+      : join(root, customConfig)
+    if (fs.existsSync(customConfigPath)) {
+      return customConfigPath
+    }
+
+    throw new Error(`Cannot find config file: ${color.dim(customConfigPath)}`)
+  }
+
+  const CONFIG_FILES = [
+    'lynx.config.ts',
+    'lynx.config.js',
+    'lynx.config.mts',
+    'lynx.config.mjs',
+  ] as const
+
+  for (const file of CONFIG_FILES) {
+    debug(`load default config file ${file} from ${root}`)
+    const configFile = join(root, file)
+
+    if (fs.existsSync(configFile)) {
+      debug(`default config ${configFile} found`)
+      return configFile
+    }
+  }
+
+  throw new Error([
+    `Cannot find the default config file: ${
+      color.dim(join(root, CONFIG_FILES[0]))
+    }.`,
+    `Use custom config with ${color.green('`--config <config>`')} options.`,
+  ].join(' '))
+}
+
+/**
+ * The options of loadConfig.
+ *
+ * @public
+ */
+export interface LoadConfigOptions {
+  configPath?: string | undefined
+  cwd?: string | undefined
+}
+
+/**
+ * The result of {@link loadConfig}.
+ *
+ * @public
+ */
+export interface LoadConfigResult {
+  /**
+   * The configuration object that exported from the configuration file.
+   *
+   * @remarks
+   *
+   * The returned object has already been validated.
+   */
+  content: Config
+  /**
+   * The configuration path that has been loaded.
+   */
+  configPath: string
+}
+
+/**
+ * Load the build config by the config path.
+ *
+ * @param loadConfigOptions - the options of `loadConfig` method.
+ * @returns Build config.
+ *
+ * @example
+ *
+ * ```ts
+ * import { loadConfig } from '@lynx-js/rspeedy'
+ *
+ * void async function () {
+ *   const config = await loadConfig({ configPath: './lynx.config.js' })
+ *   console.log(config);
+ * }()
+ * ```
+ *
+ * @public
+ */
+export async function loadConfig(
+  loadConfigOptions: LoadConfigOptions,
+): Promise<LoadConfigResult> {
+  let { configPath } = loadConfigOptions
+
+  if (!configPath || !isAbsolute(configPath)) {
+    configPath = resolveConfigPath(
+      loadConfigOptions.cwd ?? process.cwd(),
+      configPath,
+    )
+  }
+
+  // Note that we are using `pathToFileURL` since absolute paths must be valid file:// URLs on Windows.
+  const specifier = pathToFileURL(configPath).toString()
+
+  const unregister = shouldUseNativeImport(configPath)
+    ? /** noop */ () => void 0
+    : register()
+
+  try {
+    const exports = await import(
+      /* webpackIgnore: true */ `${specifier}?t=${Date.now()}`
+    ) as {
+      default: Config
+    } | Config
+
+    const content = validate(
+      'default' in exports ? exports.default : exports,
+      configPath,
+    )
+
+    return {
+      configPath,
+      content,
+    }
+  } finally {
+    unregister()
+  }
+}
+
+function shouldUseNativeImport(configPath: string): boolean {
+  return isJavaScriptPath(configPath) || hasNativeTSSupport()
+}
+
+function hasNativeTSSupport(): boolean {
+  const { NODE_OPTIONS } = process.env
+
+  if (!NODE_OPTIONS) {
+    return false
+  }
+
+  return NODE_OPTIONS.includes('--experimental-transform-types')
+    || NODE_OPTIONS.includes('--experimental-strip-types')
+}
+
+function isJavaScriptPath(configPath: string): boolean {
+  const ext = extname(configPath)
+  return ['.js', '.mjs', '.cjs'].includes(ext)
+}

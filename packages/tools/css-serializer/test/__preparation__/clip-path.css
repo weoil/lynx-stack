@@ -1,0 +1,3 @@
+.foo {
+  clip-path: inset(0px super-ellipse 3.5 3.5 20px);
+}

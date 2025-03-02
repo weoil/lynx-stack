@@ -1,0 +1,21 @@
+{
+  "extends": "../../../tsconfig.json",
+  "compilerOptions": {
+    "composite": true,
+    "outDir": "./lib",
+    "baseUrl": "./",
+    "rootDir": "./src",
+    "jsx": "preserve",
+  },
+  "references": [{
+    "path": "../worklet-runtime/tsconfig.json",
+  }],
+  "include": [
+    "jsx-dev-runtime",
+    "jsx-runtime",
+    "lepus",
+    "src",
+    "types/types.d.ts",
+    "types/internal-preact.d.ts",
+  ],
+}

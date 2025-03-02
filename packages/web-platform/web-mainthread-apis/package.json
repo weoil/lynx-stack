@@ -1,0 +1,26 @@
+{
+  "name": "@lynx-js/web-mainthread-apis",
+  "version": "0.6.2",
+  "private": false,
+  "description": "",
+  "keywords": [],
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "!dist/**/*.js.map",
+    "LICENSE.txt",
+    "Notice.txt",
+    "CHANGELOG.md",
+    "README.md",
+    "**/*.css"
+  ],
+  "dependencies": {
+    "@lynx-js/web-constants": "workspace:*",
+    "@lynx-js/web-style-transformer": "workspace:*",
+    "css-tree": "^3.1.0",
+    "hyphenate-style-name": "^1.1.0"
+  }
+}

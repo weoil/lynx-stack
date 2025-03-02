@@ -1,0 +1,13 @@
+{
+  "extends": ["../../../tsconfig.json"],
+  "compilerOptions": {
+    "composite": true,
+    "outDir": "./lib",
+    "baseUrl": "./",
+    "rootDir": "./src",
+    "stripInternal": false,
+
+    "types": [], /** Explicitly remove "node" and "DOM" */
+  },
+  "include": ["src"],
+}

@@ -1,0 +1,6 @@
+@import "./common.css?common";
+@import "./da.css";
+
+.d {
+  line-height: 24px;
+}

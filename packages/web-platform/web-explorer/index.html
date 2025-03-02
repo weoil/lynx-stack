@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="icons/icon-128x128.png">
+    <link rel="stylesheet" href="dist/static/css/index.css">
+    <title>Lynx Explorer on Web Platform</title>
+    <script type="module" src="./dist/static/js/index.js"></script>
+    <style>
+    #install-button {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      padding: 1em;
+      background-color: #000;
+      color: #fff;
+      border: none;
+      z-index: 1000;
+      display: none;
+      cursor: pointer;
+      opacity: 1;
+      transition: opacity 0.5s ease-out;
+    }
+
+    #install-button.fade-out {
+      opacity: 0;
+    }
+    @media (prefers-color-scheme: dark) {
+      #nav {
+        background-color: var(--bar-color, #181d25);
+        border-color: #eee;
+      }
+      #nav > :first-child {
+        filter: invert(1);
+      }
+    }
+    @media (prefers-color-scheme: light) {
+      #nav {
+        background-color: var(--bar-color, #f0f2f5);
+        border-color: #111;
+      }
+    }
+    </style>
+  </head>
+  <body
+    style="margin: 0; display: flex; flex-direction: column; align-items: stretch; width:100vw; max-height: 100vh;"
+  >
+    <div style="display: flex; flex: 1 1 0;">
+      <div
+        id="nav"
+        style="display: none; width:100%; border-width: 0px 0px 2px 0px; border-style: solid;"
+      >
+        <div style="margin: 10px;" id="back-button" role="button">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            width="1em"
+            height="1em"
+            focusable="false"
+            aria-hidden="true"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M16.28 4.24a1.5 1.5 0 0 1 0 2.12l-5.66 5.66 5.66 5.65a1.5 1.5 0 1 1-2.12 2.13l-6.72-6.72a1.5 1.5 0 0 1 0-2.12l6.72-6.72a1.5 1.5 0 0 1 2.12 0Z"
+              fill="currentColor"
+            >
+            </path>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <lynx-view
+      id="lynx-view"
+      style="flex: 0 1 100vh"
+    ></lynx-view>
+    <video
+      id="qr-scanner"
+      style="position: fixed; height: 100vh; width: 100vw;z-index:-1;"
+    >
+    </video>
+    <button id="install-button" style="display: none;"
+    >Install Lynx Explorer</button>
+    <script>
+    window.addEventListener('load', () => {
+      let deferredPrompt;
+      const addBtn = document.getElementById('install-button');
+
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        addBtn.style.display = 'block';
+
+        // Add timeout to hide the button
+        setTimeout(() => {
+          addBtn.classList.add('fade-out');
+          setTimeout(() => {
+            addBtn.style.display = 'none';
+          }, 500);
+        }, 5000);
+
+        addBtn.addEventListener('click', () => {
+          addBtn.style.display = 'none';
+          deferredPrompt.prompt();
+          deferredPrompt.userChoice.then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+              console.log('User accepted the install prompt');
+            } else {
+              console.log('User dismissed the install prompt');
+            }
+            deferredPrompt = null;
+          });
+        });
+      });
+
+      if (window.matchMedia('(display-mode: standalone)').matches) {
+        console.log('PWA is installed');
+      } else {
+        console.log('PWA is not installed');
+      }
+    });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,5 @@
+@import;
+@import './test.css';
+@import '../test2.css';
+@import "printstyle.css";
+@import "@ies/ug-lynx-components/lib/styles.css";

@@ -1,0 +1,12 @@
+# Case scoped - rspack: Step 0
+
+## Changed Files
+
+
+## Asset Files
+- Bundle: rspack-bundle.js
+
+## Manifest
+
+
+## Update

@@ -1,0 +1,6 @@
+{
+  "name": "local-rspeedy-test",
+  "dependencies": {
+    "@lynx-js/rspeedy": "*"
+  }
+}

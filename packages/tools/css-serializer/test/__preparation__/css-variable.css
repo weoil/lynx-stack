@@ -1,0 +1,33 @@
+:root {
+  --name: color;
+  --primary-color: green;
+  --view-height: 10px;
+  --view-height-2: 20px;
+  --bg-img: url("./xxx/main.jpg");
+}
+
+view {
+  height: calc(var(--view-height) - 10px);
+  top: calc(var(--view-height, 10px) - 10px);
+  width: calc(var(--view-height, 10px, 20px) - 10px);
+  left: calc(var(--view-height) - var(--view-height-2, 20px));
+  right: calc(var(--view-height, 30px) - var(--view-height-2, 20px));
+}
+
+text {
+  background-image: var(--primary-color);
+  background-image: var(--bg-img, url(./one.png), url(./two.png));
+  border-bottom: 6px var(--primary-color) solid;
+}
+
+.box {
+  --primary-color: red;
+
+  color: var(--primary-color);
+}
+
+.nested {
+  --secondary-color: blue;
+
+  color: var(--primary-color, var(--secondary-color, #161823))
+}

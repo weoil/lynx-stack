@@ -1,0 +1,29 @@
+{
+  "extends": "../../../tsconfig.json",
+  "compilerOptions": {
+    "plugins": [
+      {
+        "transform": "typia/lib/transform",
+      },
+    ],
+    "strictNullChecks": true,
+    "strict": true,
+    "composite": true,
+    "outDir": "./lib",
+    "rootDir": "./src",
+    "baseUrl": "./",
+    "resolveJsonModule": true,
+  },
+  "include": [
+    "src",
+  ],
+  "references": [
+    { "path": "../../webpack/runtime-wrapper-webpack-plugin/tsconfig.build.json" },
+    { "path": "../../webpack/template-webpack-plugin/tsconfig.build.json" },
+    { "path": "../../webpack/react-webpack-plugin/tsconfig.build.json" },
+    { "path": "../../webpack/react-refresh-webpack-plugin/tsconfig.build.json" },
+    { "path": "../../webpack/web-webpack-plugin/tsconfig.json" },
+    { "path": "../core/tsconfig.build.json" },
+    { "path": "../plugin-react-alias/tsconfig.build.json" },
+  ],
+}

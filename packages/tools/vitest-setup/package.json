@@ -1,0 +1,27 @@
+{
+  "name": "@lynx-js/vitest-setup",
+  "version": "0.0.0",
+  "private": true,
+  "description": "A test runner for testing Lynx-related rspack & webpack plugins",
+  "keywords": [
+    "rspack",
+    "webpack",
+    "Lynx"
+  ],
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Qingyu Wang",
+    "email": "colinwang.0616@gmail.com"
+  },
+  "type": "module",
+  "main": "index.ts",
+  "types": "index.ts",
+  "devDependencies": {
+    "path-serializer": "^0.3.4",
+    "vitest": "^3.0.7",
+    "webpack": "^5.98.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

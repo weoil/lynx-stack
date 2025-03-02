@@ -1,0 +1,58 @@
+on:
+  workflow_call:
+    inputs:
+      runs-on:
+        required: true
+        type: string
+env:
+  CI: 1
+  TURBO_TELEMETRY_DISABLED: 1
+jobs:
+  build-all:
+    runs-on: ${{ inputs.runs-on }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: PNPM Cache
+        uses: actions/cache@v4
+        with:
+          path: .pnpm-store
+          key: ${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: ${{ runner.os }}-
+          # The reason why don't we use the actions/setup-node@v4 to cache:
+          # It doesn't support corepack
+          # See: https://github.com/actions/setup-node/issues/480
+          # See: https://github.com/actions/setup-node/issues/531
+      - name: TurboCache
+        uses: actions/cache@v4
+        with:
+          path: .turbo
+          key: turbo-v3-${{ hashFiles('**/packages/**/src/**/*.rs') }}-${{ github.sha }}
+          # We can restore caches from
+          #   1. Runs in the same PR
+          #   2. Previous PRs
+          restore-keys: |
+            turbo-v3-${{ hashFiles('**/packages/**/src/**/*.rs') }}-
+      - name: Install
+        run: |
+          npm install -g corepack@latest
+          corepack enable
+          pnpm config set store-dir .pnpm-store
+          pnpm install --frozen-lockfile
+      - name: Build
+        id: build
+        run: |
+          pnpm turbo build --summarize
+        continue-on-error: true
+      - name: Setup Rust and retry build if failed
+        if: steps.build.outcome == 'failure'
+        uses: actions-rust-lang/setup-rust-toolchain@v1
+        with:
+          target: wasm32-unknown-unknown
+          cache-key: test-${{ runner.os }}
+      - name: Retry Build
+        if: steps.build.outcome == 'failure'
+        run: |
+          pnpm turbo build --summarize

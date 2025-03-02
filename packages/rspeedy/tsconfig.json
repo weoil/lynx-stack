@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "composite": true,
+  },
+  "references": [
+    /** packages-start */
+    { "path": "./core/tsconfig.build.json" },
+    { "path": "./websocket/tsconfig.build.json" },
+    { "path": "./plugin-qrcode/tsconfig.build.json" },
+    { "path": "./plugin-react/tsconfig.build.json" },
+    { "path": "./plugin-react-alias/tsconfig.build.json" },
+    /** packages-end */
+  ],
+  "include": [],
+}

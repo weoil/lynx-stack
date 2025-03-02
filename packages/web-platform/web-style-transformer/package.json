@@ -1,0 +1,18 @@
+{
+  "name": "@lynx-js/web-style-transformer",
+  "version": "0.2.1",
+  "private": false,
+  "license": "Apache-2.0",
+  "sideEffects": false,
+  "type": "module",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "!dist/**/*.js.map",
+    "LICENSE.txt",
+    "Notice.txt",
+    "CHANGELOG.md",
+    "README.md"
+  ]
+}

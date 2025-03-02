@@ -1,0 +1,16 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "composite": true,
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "lib": ["ESNext", "WebWorker"],
+    "verbatimModuleSyntax": true,
+  },
+  "include": ["src"],
+  "references": [
+    { "path": "../web-constants/tsconfig.json" },
+    { "path": "../web-mainthread-apis/tsconfig.json" },
+    { "path": "../web-worker-rpc/tsconfig.json" },
+  ],
+}

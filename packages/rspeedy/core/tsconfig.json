@@ -1,0 +1,24 @@
+{
+  "extends": ["./tsconfig.build.json"],
+  "compilerOptions": {
+    "rootDir": ".",
+    "noEmit": true,
+  },
+  "include": [
+    "bin",
+    "register",
+    "src",
+    "test",
+    "client.d.ts",
+    "package.json",
+    "vitest.config.ts",
+  ],
+  "exclude": [
+    "test/cli/fixtures",
+    "test/config/fixtures",
+  ],
+  "references": [
+    { "path": "../../webpack/chunk-loading-webpack-plugin/tsconfig.build.json" },
+    { "path": "../../webpack/css-extract-webpack-plugin/tsconfig.build.json" },
+  ],
+}

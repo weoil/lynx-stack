@@ -1,0 +1,1 @@
+import 'non-exist-pkg'

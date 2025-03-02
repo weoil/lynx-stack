@@ -1,0 +1,24 @@
+{
+  "extends": [
+    "../../.dprint.jsonc",
+  ],
+  "typescript": {
+    "lineWidth": 80,
+    "semiColons": "asi",
+    "quoteStyle": "alwaysSingle",
+    "typeLiteral.separatorKind.singleLine": "comma", // align with @stylistic/member-delimiter-style
+
+    // Let eslint-plugin-import handle this.
+    "module.sortImportDeclarations": "maintain",
+    "module.sortExportDeclarations": "maintain",
+    "exportDeclaration.sortNamedExports": "maintain",
+    "importDeclaration.sortNamedImports": "maintain",
+  },
+  "excludes": [
+    // Test snapshots
+    "core/test/config/fixtures/error/**",
+    "core/test/cli/fixtures/**",
+    "packages/rspeedy/core/test/**/*.css",
+    "core/bin/rspeedy.js",
+  ],
+}

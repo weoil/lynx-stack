@@ -1,0 +1,16 @@
+packages:
+  - examples/*
+  - packages/react
+  - packages/react/refresh
+  - packages/react/runtime
+  - packages/react/transform
+  - packages/react/worklet-runtime
+  - packages/rspeedy/*
+  - packages/tools/*
+  - packages/web-platform/*
+  - packages/webpack/*
+  - packages/third-party/*
+  - .github/actions/eco-ci
+
+catalog:
+  "@microsoft/api-extractor": "7.51.0"

@@ -1,0 +1,26 @@
+{
+  "extends": "../../../tsconfig.json",
+  "compilerOptions": {
+    "plugins": [
+      {
+        "transform": "typia/lib/transform",
+      },
+    ],
+    "strictNullChecks": true,
+    "strict": true,
+    "composite": true,
+    "outDir": "./lib",
+    "rootDir": "./src",
+    "baseUrl": "./",
+
+    "resolveJsonModule": true,
+  },
+  "include": [
+    "register",
+    "src",
+  ],
+  "references": [
+    { "path": "../../webpack/chunk-loading-webpack-plugin/tsconfig.build.json" },
+    { "path": "../../webpack/css-extract-webpack-plugin/tsconfig.build.json" },
+  ],
+}

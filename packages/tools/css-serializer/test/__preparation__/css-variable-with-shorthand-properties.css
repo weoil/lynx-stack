@@ -1,0 +1,3 @@
+.text {
+    border-bottom: 0.5px var(--css-var, solid) var(--border-color, #FFE4D0);
+}

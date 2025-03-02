@@ -1,0 +1,18 @@
+{
+  "extends": [
+    "../../.dprint.jsonc",
+  ],
+  "typescript": {
+    "lineWidth": 120,
+    "semiColons": "prefer",
+  },
+  "excludes": [
+    // Generated
+    "transform/index.d.ts",
+    "transform/index.js",
+
+    // Snapshot
+    "transform/tests/__swc_snapshots__/**",
+    "transform/__test__/**/__snapshots__/**",
+  ],
+}

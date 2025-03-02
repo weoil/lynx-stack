@@ -1,0 +1,111 @@
+name: Test
+on:
+  pull_request:
+    branches:
+      - main
+permissions:
+  repository-projects: read
+  contents: read
+  actions: write
+  pull-requests: write
+  statuses: read
+env:
+  CI: 1
+  TURBO_TELEMETRY_DISABLED: 1
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  build:
+    uses: ./.github/workflows/workflow-build.yml
+    secrets: inherit
+    with:
+      runs-on: lynx-ubuntu-24.04-xlarge #todo: use medium once its ready
+  test-rspeedy:
+    needs: build
+    uses: ./.github/workflows/workflow-test.yml
+    secrets: inherit
+    with:
+      runs-on: lynx-ubuntu-24.04-xlarge #todo: use medium once its ready
+      run: >
+        sudo apt-get update &&
+        sudo apt-get install -y iproute2 &&
+        pnpm run test
+        --project rspeedy
+        --project 'rspeedy/*'
+        --test-timeout=50000
+        --coverage
+        --no-cache
+        --logHeapUsage
+        --silent
+      files: |
+        package.json
+        pnpm-lock.yaml
+        vitest.config.ts
+        packages/rspeedy/**
+        .github/workflows/**
+  test-react:
+    needs: build
+    uses: ./.github/workflows/workflow-test.yml
+    secrets: inherit
+    with:
+      runs-on: lynx-ubuntu-24.04-xlarge #todo: use medium once its ready
+      run: >
+        pnpm
+        --filter @lynx-js/react-runtime
+        --filter @lynx-js/react-worklet-runtime
+        --filter @lynx-js/react-transform
+        run test
+        --test-timeout=50000
+        --no-cache
+        --logHeapUsage
+        --silent
+      files: |
+        package.json
+        pnpm-lock.yaml
+        vitest.config.ts
+        packages/react/**
+        .github/workflows/**
+  test-plugins:
+    needs: build
+    uses: ./.github/workflows/workflow-test.yml
+    secrets: inherit
+    with:
+      runs-on: lynx-ubuntu-24.04-xlarge #todo: use medium once its ready
+      run: >
+        pnpm run test
+        --project 'webpack/*'
+        --test-timeout=50000
+        --coverage
+        --no-cache
+        --logHeapUsage
+        --silent
+      files: |
+        package.json
+        pnpm-lock.yaml
+        vitest.config.ts
+        packages/webpack/**
+        .github/workflows/**
+  playwright-linux:
+    needs: build
+    uses: ./.github/workflows/workflow-test.yml
+    secrets: inherit
+    with:
+      runs-on: lynx-ubuntu-24.04-xlarge
+      is-web: true
+      run: |
+        export NODE_OPTIONS="--max-old-space-size=32768"
+        pnpm --filter @lynx-js/web-tests run test:install
+        pnpm --filter @lynx-js/web-tests run test
+  test-rust:
+    uses: ./.github/workflows/rust.yml
+    secrets: inherit
+    with:
+      runs-on: lynx-ubuntu-24.04-xlarge #todo: use medium once its ready
+      files: |
+        **/*.rs
+        **/Cargo.toml
+        packages/react/transform/index.d.ts
+        .rustfmt.toml
+        rust-toolchain
+        .github/workflows/rust.yml

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!-- Copyright 2024 The Lynx Authors. All rights reserved.
+ Licensed under the Apache License Version 2.0 that can be found in the
+ LICENSE file in the root directory of this source tree. -->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>web playground</title>
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="default" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="portrait" name="screen-orientation">
+    <meta
+      content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"
+      name="viewport"
+    >
+    <meta content="portrait" name="x5-orientation">
+    <link
+      href="/node_modules/@lynx-js/web-elements/index.css"
+      rel="stylesheet"
+    />
+    <link
+      href="/web-elements.css"
+      rel="stylesheet"
+    />
+
+    <style>
+    @import url("../../common.css");
+    x-list {
+      width: 100%;
+      height: 500px;
+    }
+
+    list-item {
+      border-width: 5px;
+      border-color: green;
+      height: 100px;
+      background-color: yellow;
+    }
+
+    #vertical list-item {
+      width: 100%;
+    }
+
+    #horizontal list-item {
+      width: 30%;
+    }
+    </style>
+  </head>
+
+  <body>
+    <script src="/web-elements.js" defer></script>
+    <x-view class="page">
+      <x-list list-type="single" id="vertical">
+        <list-item item-key="1" id="1"><x-text>1</x-text></list-item>
+        <list-item item-key="2" id="2"><x-text>2</x-text></list-item>
+        <list-item item-key="3" id="3"><x-text>3</x-text></list-item>
+        <list-item item-key="4" id="4"><x-text>4</x-text></list-item>
+        <list-item item-key="5" id="5"><x-text>5</x-text></list-item>
+        <list-item item-key="6" id="6"><x-text>6</x-text></list-item>
+        <list-item item-key="7" id="7"><x-text>7</x-text></list-item>
+        <list-item item-key="8" id="8"><x-text>8</x-text></list-item>
+        <list-item item-key="9" id="9"><x-text>9</x-text></list-item>
+        <list-item item-key="10" id="10"><x-text>10</x-text></list-item>
+        <list-item item-key="11" id="11"><x-text>11</x-text></list-item>
+        <list-item item-key="12" id="12"><x-text>12</x-text></list-item>
+        <list-item item-key="13" id="13"><x-text>13</x-text></list-item>
+        <list-item item-key="14" id="14"><x-text>14</x-text></list-item>
+        <list-item item-key="15" id="15"><x-text>15</x-text></list-item>
+        <list-item item-key="16" id="16"><x-text>16</x-text></list-item>
+        <list-item item-key="17" id="17"><x-text>17</x-text></list-item>
+        <list-item item-key="18" id="18"><x-text>18</x-text></list-item>
+        <list-item item-key="19" id="19"><x-text>19</x-text></list-item>
+        <list-item item-key="20" id="20"><x-text>20</x-text></list-item>
+      </x-list>
+      <x-list
+        list-type="single"
+        scroll-orientation="horizontal"
+        id="horizontal"
+      >
+        <list-item item-key="1" id="1"><x-text>1</x-text></list-item>
+        <list-item item-key="2" id="2"><x-text>2</x-text></list-item>
+        <list-item item-key="3" id="3"><x-text>3</x-text></list-item>
+        <list-item item-key="4" id="4"><x-text>4</x-text></list-item>
+        <list-item item-key="5" id="5"><x-text>5</x-text></list-item>
+        <list-item item-key="6" id="6"><x-text>6</x-text></list-item>
+        <list-item item-key="7" id="7"><x-text>7</x-text></list-item>
+        <list-item item-key="8" id="8"><x-text>8</x-text></list-item>
+        <list-item item-key="9" id="9"><x-text>9</x-text></list-item>
+        <list-item item-key="10" id="10"><x-text>10</x-text></list-item>
+        <list-item item-key="11" id="11"><x-text>11</x-text></list-item>
+        <list-item item-key="12" id="12"><x-text>12</x-text></list-item>
+        <list-item item-key="13" id="13"><x-text>13</x-text></list-item>
+        <list-item item-key="14" id="14"><x-text>14</x-text></list-item>
+        <list-item item-key="15" id="15"><x-text>15</x-text></list-item>
+        <list-item item-key="16" id="16"><x-text>16</x-text></list-item>
+        <list-item item-key="17" id="17"><x-text>17</x-text></list-item>
+        <list-item item-key="18" id="18"><x-text>18</x-text></list-item>
+        <list-item item-key="19" id="19"><x-text>19</x-text></list-item>
+        <list-item item-key="20" id="20"><x-text>20</x-text></list-item>
+      </x-list>
+    </x-view>
+  </body>
+</html>

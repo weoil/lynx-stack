@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "composite": true,
+  },
+  "references": [
+    /** packages-start */
+    { "path": "./css-serializer/tsconfig.json" },
+    { "path": "./vitest-setup/tsconfig.json" },
+    /** packages-end */
+  ],
+  "include": [],
+}

@@ -1,0 +1,35 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalPassThroughEnv": [
+    "CI",
+    "COREPACK_INTEGRITY_KEYS",
+    "COREPACK_NPM_REGISTRY",
+    "COREPACK_DEFAULT_TO_LATEST"
+  ],
+  "ui": "tui",
+  "tasks": {
+    "api-extractor": {
+      "dependsOn": [
+        "//#build"
+      ],
+      "inputs": [
+        "api-extractor.json",
+        "lib/**"
+      ]
+    },
+    "build": {
+      "dependsOn": [
+        "//#build",
+        "^build"
+      ]
+    },
+    "test": {
+      "dependsOn": [],
+      "cache": false
+    },
+    "//#build": {
+      "cache": false,
+      "dependsOn": []
+    }
+  }
+}

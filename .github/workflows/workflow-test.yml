@@ -1,0 +1,89 @@
+on:
+  workflow_call:
+    inputs:
+      runs-on:
+        required: true
+        type: string
+      files: # the filter
+        required: false
+        type: string
+        default: ""
+      run:
+        required: true
+        type: string
+      is-web:
+        required: false
+        type: boolean
+        default: false
+env:
+  CI: 1
+  TURBO_TELEMETRY_DISABLED: 1
+jobs:
+  check:
+    runs-on: ${{ inputs.runs-on }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Get Changed Files
+        id: changed-files
+        uses: tj-actions/changed-files@v45.0.7
+        with:
+          files: ${{ inputs.files }}
+      - uses: actions/setup-node@v4
+        if: steps.changed-files.outputs.any_changed == 'true'
+        with:
+          node-version: "22"
+      - name: PNPM Cache
+        uses: actions/cache@v4
+        if: steps.changed-files.outputs.any_changed == 'true'
+        with:
+          path: .pnpm-store
+          key: ${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: ${{ runner.os }}-
+          # The reason why don't we use the actions/setup-node@v4 to cache:
+          # It doesn't support corepack
+          # See: https://github.com/actions/setup-node/issues/480
+          # See: https://github.com/actions/setup-node/issues/531
+      - name: TurboCache
+        uses: actions/cache@v4
+        if: steps.changed-files.outputs.any_changed == 'true'
+        with:
+          path: .turbo
+          # We have to be strict here to make sure getting the cache of build-all
+          key: turbo-v3-${{ hashFiles('**/packages/**/src/**/*.rs') }}-${{ github.sha }}
+      - name: Install
+        if: steps.changed-files.outputs.any_changed == 'true'
+        run: |
+          npm install -g corepack@latest
+          corepack enable
+          pnpm config set store-dir .pnpm-store
+          pnpm install --frozen-lockfile
+      - name: Build
+        if: steps.changed-files.outputs.any_changed == 'true'
+        run: |
+          pnpm turbo build --summarize
+      - name: Upload Turbo Summary
+        if: ${{ failure() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: turbo-summary-${{ github.ref }}
+          path: .turbo/runs
+          if-no-files-found: error
+          retention-days: 1
+          overwrite: true
+          include-hidden-files: true
+      - name: Test
+        id: test
+        env:
+          NODE_OPTIONS: --max-old-space-size=8192
+        if: steps.changed-files.outputs.any_changed == 'true'
+        run: ${{ inputs.run }}
+      - name: Upload Test Result
+        if: ${{ inputs.is-web && failure() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: packages/web-platform/web-tests/playwright-report
+          if-no-files-found: error
+          retention-days: 1
+          overwrite: true
+          include-hidden-files: true

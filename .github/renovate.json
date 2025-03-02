@@ -1,0 +1,76 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    ":automergeStableNonMajor",
+    ":automergeTypes",
+    ":maintainLockFilesWeekly"
+  ],
+
+  "enabledManagers": [
+    "npm",
+    "nvm",
+    "github-actions"
+  ],
+
+  "labels": ["renovate"],
+
+  "packageRules": [
+    {
+      "matchPackageNames": [
+        "*"
+      ],
+      "rangeStrategy": "bump"
+    },
+    {
+      "groupName": "Rspack",
+      "groupSlug": "Rspack",
+      "addLabels": ["Rspack"],
+      "matchDepTypes": [
+        "devDependencies",
+        "dependencies"
+      ],
+      "matchPackageNames": [
+        "/@rspack/*/"
+      ],
+      "rangeStrategy": "pin",
+      "automerge": false
+    },
+    {
+      "groupName": "Rsbuild",
+      "groupSlug": "Rsbuild",
+      "addLabels": ["Rsbuild"],
+      "matchDepTypes": [
+        "devDependencies",
+        "dependencies"
+      ],
+      "matchPackageNames": [
+        "/@rsbuild/*/",
+        "/rsbuild-plugin-*/"
+      ],
+      "rangeStrategy": "pin",
+      "automerge": false
+    },
+    {
+      "groupName": "changesets",
+      "groupSlug": "changesets",
+      "matchPackageNames": [
+        "/^@changesets/*/"
+      ]
+    },
+    {
+      "matchDepTypes": [
+        "peerDependencies"
+      ],
+      "addLabels": ["peerDependencies"],
+      "rangeStrategy": "widen"
+    }
+  ],
+  "postUpdateOptions": [
+    "pnpmDedupe"
+  ],
+  "ignoreDeps": [
+    // align Node.js version minimum requirements
+    "node"
+  ]
+}

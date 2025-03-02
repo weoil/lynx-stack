@@ -1,0 +1,2915 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`aspect-ratio 1`] = `
+[
+  {
+    "selectorText": {
+      "loc": {
+        "column": 6,
+        "line": 1,
+      },
+      "value": ".test",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 17,
+          "line": 2,
+        },
+        "name": "aspect-ratio",
+        "valLoc": {
+          "column": 27,
+          "line": 2,
+        },
+        "value": "275/180",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+]
+`;
+
+exports[`attribute 1`] = `
+[
+  {
+    "selectorText": {
+      "loc": {
+        "column": 11,
+        "line": 9,
+      },
+      "value": "[title="test"],[title="test"i],[title="test"i],[title="123"],[title="test test"],[title="test test"i],[title="test test"i],[title="-"],[title=""]",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 6,
+          "line": 11,
+        },
+        "name": "p",
+        "valLoc": {
+          "column": 10,
+          "line": 11,
+        },
+        "value": "v",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 14,
+        "line": 15,
+      },
+      "value": "[name=test],[name=test i]",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 6,
+          "line": 17,
+        },
+        "name": "p",
+        "valLoc": {
+          "column": 10,
+          "line": 17,
+        },
+        "value": "v",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 60,
+        "line": 20,
+      },
+      "value": ".test, .test-1 div:hover, #test-3 + .test-4[index-a ^= 123]",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 12,
+          "line": 21,
+        },
+        "name": "display",
+        "valLoc": {
+          "column": 19,
+          "line": 21,
+        },
+        "value": "flex",
+      },
+      {
+        "keyLoc": {
+          "column": 16,
+          "line": 22,
+        },
+        "name": "flex-shrink",
+        "valLoc": {
+          "column": 20,
+          "line": 22,
+        },
+        "value": "0",
+      },
+      {
+        "keyLoc": {
+          "column": 11,
+          "line": 23,
+        },
+        "name": "dsadas",
+        "valLoc": {
+          "column": 16,
+          "line": 23,
+        },
+        "value": "10",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+]
+`;
+
+exports[`break-rule 1`] = `
+[
+  {
+    "selectorText": {
+      "loc": {
+        "column": 6,
+        "line": 1,
+      },
+      "value": ".test",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 12,
+          "line": 2,
+        },
+        "name": "display",
+        "valLoc": {
+          "column": 19,
+          "line": 2,
+        },
+        "value": "flex",
+      },
+      {
+        "keyLoc": {
+          "column": 9,
+          "line": 4,
+        },
+        "name": "left",
+        "valLoc": {
+          "column": 16,
+          "line": 4,
+        },
+        "value": "10px",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 8,
+        "line": 8,
+      },
+      "value": ".test-1",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 12,
+          "line": 9,
+        },
+        "name": "display",
+        "valLoc": {
+          "column": 19,
+          "line": 9,
+        },
+        "value": "flex",
+      },
+      {
+        "keyLoc": {
+          "column": 11,
+          "line": 10,
+        },
+        "name": "height",
+        "valLoc": {
+          "column": 2,
+          "line": 11,
+        },
+        "value": "",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+]
+`;
+
+exports[`clip-path 1`] = `
+[
+  {
+    "selectorText": {
+      "loc": {
+        "column": 5,
+        "line": 1,
+      },
+      "value": ".foo",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 12,
+          "line": 2,
+        },
+        "name": "clip-path",
+        "valLoc": {
+          "column": 52,
+          "line": 2,
+        },
+        "value": "inset(0px super-ellipse 3.5 3.5 20px)",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+]
+`;
+
+exports[`color 1`] = `
+[
+  {
+    "selectorText": {
+      "loc": {
+        "column": 2,
+        "line": 1,
+      },
+      "value": "a",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 8,
+          "line": 2,
+        },
+        "name": "color",
+        "valLoc": {
+          "column": 18,
+          "line": 2,
+        },
+        "value": "#ABCDEF",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 10,
+        "line": 5,
+      },
+      "value": ".c-f5deb3",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 8,
+          "line": 6,
+        },
+        "name": "color",
+        "valLoc": {
+          "column": 2,
+          "line": 7,
+        },
+        "value": "#f5deb3",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 7,
+        "line": 9,
+      },
+      "value": ".c-fff",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 8,
+          "line": 10,
+        },
+        "name": "color",
+        "valLoc": {
+          "column": 2,
+          "line": 11,
+        },
+        "value": "#fff",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 10,
+        "line": 13,
+      },
+      "value": ".c-ffffff",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 8,
+          "line": 14,
+        },
+        "name": "color",
+        "valLoc": {
+          "column": 2,
+          "line": 15,
+        },
+        "value": "#ffffff",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 10,
+        "line": 17,
+      },
+      "value": ".c-f5f5f5",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 8,
+          "line": 18,
+        },
+        "name": "color",
+        "valLoc": {
+          "column": 2,
+          "line": 19,
+        },
+        "value": "#f5f5f5",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 7,
+        "line": 21,
+      },
+      "value": ".c-ff0",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 8,
+          "line": 22,
+        },
+        "name": "color",
+        "valLoc": {
+          "column": 2,
+          "line": 23,
+        },
+        "value": "#ff0",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 10,
+        "line": 25,
+      },
+      "value": ".c-ffff00",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 8,
+          "line": 26,
+        },
+        "name": "color",
+        "valLoc": {
+          "column": 2,
+          "line": 27,
+        },
+        "value": "#ffff00",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 10,
+        "line": 29,
+      },
+      "value": ".c-9acd32",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 8,
+          "line": 30,
+        },
+        "name": "color",
+        "valLoc": {
+          "column": 2,
+          "line": 31,
+        },
+        "value": "#9acd32",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 3,
+        "line": 33,
+      },
+      "value": ".a",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 8,
+          "line": 34,
+        },
+        "name": "color",
+        "valLoc": {
+          "column": 28,
+          "line": 34,
+        },
+        "value": "hsl(0,100%,50%)",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 3,
+        "line": 37,
+      },
+      "value": ".b",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 8,
+          "line": 38,
+        },
+        "name": "color",
+        "valLoc": {
+          "column": 30,
+          "line": 38,
+        },
+        "value": "hsl(120,100%,50%)",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 3,
+        "line": 41,
+      },
+      "value": ".c",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 8,
+          "line": 42,
+        },
+        "name": "color",
+        "valLoc": {
+          "column": 29,
+          "line": 42,
+        },
+        "value": "hsl(210,65%,20%)",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 3,
+        "line": 45,
+      },
+      "value": ".d",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 8,
+          "line": 46,
+        },
+        "name": "color",
+        "valLoc": {
+          "column": 30,
+          "line": 46,
+        },
+        "value": "hsl(720,150%,50%)",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 2,
+        "line": 49,
+      },
+      "value": "a",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 8,
+          "line": 50,
+        },
+        "name": "color",
+        "valLoc": {
+          "column": 14,
+          "line": 50,
+        },
+        "value": "RED",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 11,
+        "line": 53,
+      },
+      "value": ".chocolate",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 8,
+          "line": 54,
+        },
+        "name": "color",
+        "valLoc": {
+          "column": 20,
+          "line": 54,
+        },
+        "value": "chocolate",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 7,
+        "line": 57,
+      },
+      "value": ".coral",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 8,
+          "line": 58,
+        },
+        "name": "color",
+        "valLoc": {
+          "column": 16,
+          "line": 58,
+        },
+        "value": "coral",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 16,
+        "line": 61,
+      },
+      "value": ".cornflowerblue",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 8,
+          "line": 62,
+        },
+        "name": "color",
+        "valLoc": {
+          "column": 25,
+          "line": 62,
+        },
+        "value": "cornflowerblue",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 10,
+        "line": 65,
+      },
+      "value": ".cornsilk",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 8,
+          "line": 66,
+        },
+        "name": "color",
+        "valLoc": {
+          "column": 19,
+          "line": 66,
+        },
+        "value": "cornsilk",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 9,
+        "line": 69,
+      },
+      "value": ".crimson",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 8,
+          "line": 70,
+        },
+        "name": "color",
+        "valLoc": {
+          "column": 18,
+          "line": 70,
+        },
+        "value": "crimson",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 2,
+        "line": 73,
+      },
+      "value": "a",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 8,
+          "line": 74,
+        },
+        "name": "color",
+        "valLoc": {
+          "column": 27,
+          "line": 74,
+        },
+        "value": "rgb(255,-10,0)",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 2,
+        "line": 77,
+      },
+      "value": "b",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 8,
+          "line": 78,
+        },
+        "name": "color",
+        "valLoc": {
+          "column": 27,
+          "line": 78,
+        },
+        "value": "rgb(255,+17,0)",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 2,
+        "line": 81,
+      },
+      "value": "c",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 8,
+          "line": 82,
+        },
+        "name": "color",
+        "valLoc": {
+          "column": 29,
+          "line": 82,
+        },
+        "value": "rgb(256,256,256)",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 2,
+        "line": 85,
+      },
+      "value": "d",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 8,
+          "line": 86,
+        },
+        "name": "color",
+        "valLoc": {
+          "column": 29,
+          "line": 86,
+        },
+        "value": "rgb(255 0 0/0.5)",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 3,
+        "line": 89,
+      },
+      "value": ".a",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 8,
+          "line": 90,
+        },
+        "name": "color",
+        "valLoc": {
+          "column": 15,
+          "line": 90,
+        },
+        "value": "#fff",
+      },
+      {
+        "keyLoc": {
+          "column": 8,
+          "line": 91,
+        },
+        "name": "color",
+        "valLoc": {
+          "column": 29,
+          "line": 91,
+        },
+        "value": "rgb(100,100,100)",
+      },
+      {
+        "keyLoc": {
+          "column": 8,
+          "line": 92,
+        },
+        "name": "color",
+        "valLoc": {
+          "column": 34,
+          "line": 92,
+        },
+        "value": "rgba(100,100,100,.5)",
+      },
+      {
+        "keyLoc": {
+          "column": 8,
+          "line": 93,
+        },
+        "name": "color",
+        "valLoc": {
+          "column": 28,
+          "line": 93,
+        },
+        "value": "hsl(0,100%,50%)",
+      },
+      {
+        "keyLoc": {
+          "column": 8,
+          "line": 94,
+        },
+        "name": "color",
+        "valLoc": {
+          "column": 33,
+          "line": 94,
+        },
+        "value": "hsla(0,100%,50%,.5)",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+]
+`;
+
+exports[`comment 1`] = `
+[
+  {
+    "selectorText": {
+      "loc": {
+        "column": 2,
+        "line": 9,
+      },
+      "value": "a",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 8,
+          "line": 10,
+        },
+        "name": "color",
+        "valLoc": {
+          "column": 14,
+          "line": 10,
+        },
+        "value": "red",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 4,
+        "line": 14,
+      },
+      "value": "b-1",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 8,
+          "line": 15,
+        },
+        "name": "color",
+        "valLoc": {
+          "column": 14,
+          "line": 15,
+        },
+        "value": "red",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 4,
+        "line": 17,
+      },
+      "value": "b-2",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 8,
+          "line": 18,
+        },
+        "name": "color",
+        "valLoc": {
+          "column": 14,
+          "line": 18,
+        },
+        "value": "red",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 2,
+        "line": 22,
+      },
+      "value": "c",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 8,
+          "line": 23,
+        },
+        "name": "color",
+        "valLoc": {
+          "column": 14,
+          "line": 23,
+        },
+        "value": "red",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+]
+`;
+
+exports[`css-variable 1`] = `
+[
+  {
+    "selectorText": {
+      "loc": {
+        "column": 6,
+        "line": 1,
+      },
+      "value": ":root",
+    },
+    "style": [],
+    "type": "StyleRule",
+    "variables": {
+      "--bg-img": "url('./xxx/main.jpg')",
+      "--name": "color",
+      "--primary-color": "green",
+      "--view-height": "10px",
+      "--view-height-2": "20px",
+    },
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 5,
+        "line": 9,
+      },
+      "value": "view",
+    },
+    "style": [
+      {
+        "defaultValue": "",
+        "defaultValueMap": {
+          "--view-height": "",
+        },
+        "keyLoc": {
+          "column": 9,
+          "line": 10,
+        },
+        "name": "height",
+        "type": "css_var",
+        "valLoc": {
+          "column": 43,
+          "line": 10,
+        },
+        "value": "calc( {{--view-height}}  - 10px)",
+      },
+      {
+        "defaultValue": "calc(10px - 10px)",
+        "defaultValueMap": {
+          "--view-height": "10px",
+        },
+        "keyLoc": {
+          "column": 6,
+          "line": 11,
+        },
+        "name": "top",
+        "type": "css_var",
+        "valLoc": {
+          "column": 46,
+          "line": 11,
+        },
+        "value": "calc( {{--view-height}}  - 10px)",
+      },
+      {
+        "defaultValue": "calc(10px,20px - 10px)",
+        "defaultValueMap": {
+          "--view-height": "10px,20px",
+        },
+        "keyLoc": {
+          "column": 8,
+          "line": 12,
+        },
+        "name": "width",
+        "type": "css_var",
+        "valLoc": {
+          "column": 54,
+          "line": 12,
+        },
+        "value": "calc( {{--view-height}}  - 10px)",
+      },
+      {
+        "defaultValue": "",
+        "defaultValueMap": {
+          "--view-height": "",
+          "--view-height-2": "20px",
+        },
+        "keyLoc": {
+          "column": 7,
+          "line": 13,
+        },
+        "name": "left",
+        "type": "css_var",
+        "valLoc": {
+          "column": 63,
+          "line": 13,
+        },
+        "value": "calc( {{--view-height}}  -  {{--view-height-2}})",
+      },
+      {
+        "defaultValue": "calc(30px - 20px)",
+        "defaultValueMap": {
+          "--view-height": "30px",
+          "--view-height-2": "20px",
+        },
+        "keyLoc": {
+          "column": 8,
+          "line": 14,
+        },
+        "name": "right",
+        "type": "css_var",
+        "valLoc": {
+          "column": 70,
+          "line": 14,
+        },
+        "value": "calc( {{--view-height}}  -  {{--view-height-2}})",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 5,
+        "line": 17,
+      },
+      "value": "text",
+    },
+    "style": [
+      {
+        "defaultValue": "",
+        "defaultValueMap": {
+          "--primary-color": "",
+        },
+        "keyLoc": {
+          "column": 19,
+          "line": 18,
+        },
+        "name": "background-image",
+        "type": "css_var",
+        "valLoc": {
+          "column": 42,
+          "line": 18,
+        },
+        "value": "{{--primary-color}}",
+      },
+      {
+        "defaultValue": "url('./one.png'),url('./two.png')",
+        "defaultValueMap": {
+          "--bg-img": "url('./one.png'),url('./two.png')",
+        },
+        "keyLoc": {
+          "column": 19,
+          "line": 19,
+        },
+        "name": "background-image",
+        "type": "css_var",
+        "valLoc": {
+          "column": 67,
+          "line": 19,
+        },
+        "value": "{{--bg-img}}",
+      },
+      {
+        "defaultValue": "",
+        "defaultValueMap": {
+          "--primary-color": "",
+        },
+        "keyLoc": {
+          "column": 16,
+          "line": 20,
+        },
+        "name": "border-bottom",
+        "type": "css_var",
+        "valLoc": {
+          "column": 49,
+          "line": 20,
+        },
+        "value": "6px {{--primary-color}} solid",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 5,
+        "line": 23,
+      },
+      "value": ".box",
+    },
+    "style": [
+      {
+        "defaultValue": "",
+        "defaultValueMap": {
+          "--primary-color": "",
+        },
+        "keyLoc": {
+          "column": 8,
+          "line": 26,
+        },
+        "name": "color",
+        "type": "css_var",
+        "valLoc": {
+          "column": 31,
+          "line": 26,
+        },
+        "value": "{{--primary-color}}",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {
+      "--primary-color": "red",
+    },
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 8,
+        "line": 29,
+      },
+      "value": ".nested",
+    },
+    "style": [
+      {
+        "defaultValue": "var(--secondary-color,#161823)",
+        "defaultValueMap": {
+          "--primary-color": "var(--secondary-color,#161823)",
+          "--secondary-color": "#161823",
+        },
+        "keyLoc": {
+          "column": 8,
+          "line": 32,
+        },
+        "name": "color",
+        "type": "css_var",
+        "valLoc": {
+          "column": 2,
+          "line": 33,
+        },
+        "value": "{{--primary-color}}",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {
+      "--secondary-color": "blue",
+    },
+  },
+]
+`;
+
+exports[`css-variable-with-shorthand-properties 1`] = `
+{
+  "errors": [],
+  "root": [
+    {
+      "selectorText": {
+        "loc": {
+          "column": 6,
+          "line": 1,
+        },
+        "value": ".text",
+      },
+      "style": [
+        {
+          "defaultValue": "0.5px solid #FFE4D0",
+          "defaultValueMap": {
+            "--border-color": "#FFE4D0",
+            "--css-var": "solid",
+          },
+          "keyLoc": {
+            "column": 18,
+            "line": 2,
+          },
+          "name": "border-bottom",
+          "type": "css_var",
+          "valLoc": {
+            "column": 77,
+            "line": 2,
+          },
+          "value": "0.5px {{--css-var}}  {{--border-color}}",
+        },
+      ],
+      "type": "StyleRule",
+      "variables": {},
+    },
+  ],
+}
+`;
+
+exports[`dimension 1`] = `
+[
+  {
+    "selectorText": {
+      "loc": {
+        "column": 6,
+        "line": 1,
+      },
+      "value": ".test",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 11,
+          "line": 2,
+        },
+        "name": "height",
+        "valLoc": {
+          "column": 18,
+          "line": 2,
+        },
+        "value": "10px",
+      },
+      {
+        "keyLoc": {
+          "column": 8,
+          "line": 3,
+        },
+        "name": "top",
+        "valLoc": {
+          "column": 18,
+          "line": 3,
+        },
+        "value": ".512rpx",
+      },
+      {
+        "keyLoc": {
+          "column": 9,
+          "line": 4,
+        },
+        "name": "left",
+        "valLoc": {
+          "column": 17,
+          "line": 4,
+        },
+        "value": "0.6ms",
+      },
+      {
+        "keyLoc": {
+          "column": 10,
+          "line": 5,
+        },
+        "name": "right",
+        "valLoc": {
+          "column": 19,
+          "line": 5,
+        },
+        "value": "10e-5s",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 6,
+        "line": 8,
+      },
+      "value": ".test",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 11,
+          "line": 9,
+        },
+        "name": "height",
+        "valLoc": {
+          "column": 18,
+          "line": 9,
+        },
+        "value": "+10%",
+      },
+      {
+        "keyLoc": {
+          "column": 8,
+          "line": 10,
+        },
+        "name": "top",
+        "valLoc": {
+          "column": 18,
+          "line": 10,
+        },
+        "value": "-.512vh",
+      },
+      {
+        "keyLoc": {
+          "column": 9,
+          "line": 11,
+        },
+        "name": "left",
+        "valLoc": {
+          "column": 18,
+          "line": 11,
+        },
+        "value": "+0.6vw",
+      },
+      {
+        "keyLoc": {
+          "column": 10,
+          "line": 12,
+        },
+        "name": "right",
+        "valLoc": {
+          "column": 21,
+          "line": 12,
+        },
+        "value": "-10e-5px",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 6,
+        "line": 15,
+      },
+      "value": ".test",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 11,
+          "line": 16,
+        },
+        "name": "height",
+        "valLoc": {
+          "column": 18,
+          "line": 16,
+        },
+        "value": "+10%",
+      },
+      {
+        "keyLoc": {
+          "column": 10,
+          "line": 17,
+        },
+        "name": "right",
+        "valLoc": {
+          "column": 20,
+          "line": 17,
+        },
+        "value": "10e+5px",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+]
+`;
+
+exports[`font-face 1`] = `
+[
+  {
+    "style": [
+      {
+        "keyLoc": {
+          "column": 16,
+          "line": 2,
+        },
+        "name": "font-family",
+        "valLoc": {
+          "column": 30,
+          "line": 2,
+        },
+        "value": ""MyWebFont"",
+      },
+      {
+        "keyLoc": {
+          "column": 8,
+          "line": 3,
+        },
+        "name": "src",
+        "valLoc": {
+          "column": 29,
+          "line": 3,
+        },
+        "value": "url('webfont.eot')",
+      },
+      {
+        "keyLoc": {
+          "column": 8,
+          "line": 4,
+        },
+        "name": "src",
+        "valLoc": {
+          "column": 55,
+          "line": 8,
+        },
+        "value": "url('webfont.eot?#iefix') format("embedded-opentype"),url('webfont.woff2') format("woff2"),url('webfont.woff') format("woff"),url('webfont.ttf') format("truetype"),url('webfont.svg#svgFontName') format("svg")",
+      },
+      {
+        "keyLoc": {
+          "column": 16,
+          "line": 9,
+        },
+        "name": "font-weight",
+        "valLoc": {
+          "column": 23,
+          "line": 9,
+        },
+        "value": "bold",
+      },
+    ],
+    "type": "FontFaceRule",
+  },
+]
+`;
+
+exports[`font-face-base64 1`] = `
+[
+  {
+    "style": [
+      {
+        "keyLoc": {
+          "column": 14,
+          "line": 2,
+        },
+        "name": "font-family",
+        "valLoc": {
+          "column": 31,
+          "line": 2,
+        },
+        "value": ""HometownFont"",
+      },
+      {
+        "keyLoc": {
+          "column": 6,
+          "line": 3,
+        },
+        "name": "src",
+        "valLoc": {
+          "column": 24,
+          "line": 4,
+        },
+        "value": "url('data:font/truetype;charset=utf-8;base64,AAEAAAAKAIAAAwAgT1MvMps+/sUAA...WRpZJ1kpWTRaAVoEW1BbXFuBW4lbj1uaW5xbo1u2W75bxlvfXAFcFFw+XG9ccVyXXJtcqVytXLNc4VzqXPBdB13dXeZd9F4DXjhec15/XoRehl6VXpdet17KXvZfAF8gX2ZfkF+3X+Bf+2AAYBJgaW...06jUSNY4+5j72PwY/Ij9CP3I/ej+qQCZAakEKQdZCikK+QtZDRkO2Q9JD4...lX+V6JYcljKWP5ZHlnWWj5bEl1KXVpeNl/OX9ph2mHqZdppsmnua2JyBniGeLZ5knnCexJ7RntSfUJ+Z//+x/rH7sfqx7bHqsdqx1LHQsc2xwrHAsb2xsbGusX+xfbF4sWexYrFWsT') format("truetype")",
+      },
+    ],
+    "type": "FontFaceRule",
+  },
+]
+`;
+
+exports[`function 1`] = `
+[
+  {
+    "selectorText": {
+      "loc": {
+        "column": 9,
+        "line": 1,
+      },
+      "value": ".backtop",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 12,
+          "line": 2,
+        },
+        "name": "transform",
+        "valLoc": {
+          "column": 47,
+          "line": 2,
+        },
+        "value": "translate3d(42px,-62px,-135px)",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+]
+`;
+
+exports[`import 1`] = `
+[
+  {
+    "href": "/",
+    "origin": "",
+    "type": "ImportRule",
+  },
+  {
+    "href": "/test.css",
+    "origin": "./test.css",
+    "type": "ImportRule",
+  },
+  {
+    "href": "/test2.css",
+    "origin": "../test2.css",
+    "type": "ImportRule",
+  },
+  {
+    "href": "/printstyle.css",
+    "origin": "printstyle.css",
+    "type": "ImportRule",
+  },
+  {
+    "href": "@ies/ug-lynx-components/lib/styles.css",
+    "origin": "@ies/ug-lynx-components/lib/styles.css",
+    "type": "ImportRule",
+  },
+]
+`;
+
+exports[`important 1`] = `
+[
+  {
+    "selectorText": {
+      "loc": {
+        "column": 2,
+        "line": 1,
+      },
+      "value": "a",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 10,
+          "line": 1,
+        },
+        "name": "color",
+        "valLoc": {
+          "column": 18,
+          "line": 1,
+        },
+        "value": "#111 !important",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 2,
+        "line": 2,
+      },
+      "value": "b",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 10,
+          "line": 2,
+        },
+        "name": "color",
+        "valLoc": {
+          "column": 17,
+          "line": 2,
+        },
+        "value": "#111",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 2,
+        "line": 4,
+      },
+      "value": "c",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 10,
+          "line": 4,
+        },
+        "name": "color",
+        "valLoc": {
+          "column": 17,
+          "line": 4,
+        },
+        "value": "#222",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 2,
+        "line": 5,
+      },
+      "value": "d",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 10,
+          "line": 5,
+        },
+        "name": "color",
+        "valLoc": {
+          "column": 18,
+          "line": 5,
+        },
+        "value": "#222 !important",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 2,
+        "line": 7,
+      },
+      "value": "e",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 10,
+          "line": 7,
+        },
+        "name": "color",
+        "valLoc": {
+          "column": 18,
+          "line": 7,
+        },
+        "value": "#333 !important",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 2,
+        "line": 8,
+      },
+      "value": "f",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 10,
+          "line": 8,
+        },
+        "name": "color",
+        "valLoc": {
+          "column": 17,
+          "line": 8,
+        },
+        "value": "#333",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 2,
+        "line": 10,
+      },
+      "value": "g",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 10,
+          "line": 10,
+        },
+        "name": "color",
+        "valLoc": {
+          "column": 17,
+          "line": 10,
+        },
+        "value": "#444",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 2,
+        "line": 11,
+      },
+      "value": "h",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 10,
+          "line": 11,
+        },
+        "name": "color",
+        "valLoc": {
+          "column": 18,
+          "line": 11,
+        },
+        "value": "#444 !important",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 2,
+        "line": 13,
+      },
+      "value": "i",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 10,
+          "line": 13,
+        },
+        "name": "color",
+        "valLoc": {
+          "column": 18,
+          "line": 13,
+        },
+        "value": "#555 !important",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 2,
+        "line": 14,
+      },
+      "value": "j",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 10,
+          "line": 14,
+        },
+        "name": "color",
+        "valLoc": {
+          "column": 18,
+          "line": 14,
+        },
+        "value": "#555 !important",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 2,
+        "line": 16,
+      },
+      "value": "k",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 10,
+          "line": 16,
+        },
+        "name": "color",
+        "valLoc": {
+          "column": 18,
+          "line": 16,
+        },
+        "value": "#666 !important",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 2,
+        "line": 17,
+      },
+      "value": "l",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 10,
+          "line": 17,
+        },
+        "name": "color",
+        "valLoc": {
+          "column": 18,
+          "line": 17,
+        },
+        "value": "#666 !important",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 2,
+        "line": 19,
+      },
+      "value": "w",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 9,
+          "line": 20,
+        },
+        "name": "margin",
+        "valLoc": {
+          "column": 19,
+          "line": 20,
+        },
+        "value": "0 auto !important",
+      },
+      {
+        "keyLoc": {
+          "column": 9,
+          "line": 21,
+        },
+        "name": "margin",
+        "valLoc": {
+          "column": 16,
+          "line": 21,
+        },
+        "value": "0 5%",
+      },
+      {
+        "keyLoc": {
+          "column": 10,
+          "line": 23,
+        },
+        "name": "padding",
+        "valLoc": {
+          "column": 21,
+          "line": 23,
+        },
+        "value": "2px 4px !important",
+      },
+      {
+        "keyLoc": {
+          "column": 10,
+          "line": 24,
+        },
+        "name": "padding",
+        "valLoc": {
+          "column": 16,
+          "line": 24,
+        },
+        "value": "1px",
+      },
+      {
+        "keyLoc": {
+          "column": 8,
+          "line": 26,
+        },
+        "name": "color",
+        "valLoc": {
+          "column": 17,
+          "line": 26,
+        },
+        "value": "green !important",
+      },
+      {
+        "keyLoc": {
+          "column": 8,
+          "line": 27,
+        },
+        "name": "color",
+        "valLoc": {
+          "column": 14,
+          "line": 27,
+        },
+        "value": "red",
+      },
+      {
+        "keyLoc": {
+          "column": 13,
+          "line": 29,
+        },
+        "name": "text-align",
+        "valLoc": {
+          "column": 23,
+          "line": 29,
+        },
+        "value": "center !important",
+      },
+      {
+        "keyLoc": {
+          "column": 13,
+          "line": 30,
+        },
+        "name": "text-align",
+        "valLoc": {
+          "column": 20,
+          "line": 30,
+        },
+        "value": "left",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+]
+`;
+
+exports[`keyframes 1`] = `
+[
+  {
+    "name": {
+      "loc": {
+        "column": 19,
+        "line": 1,
+      },
+      "value": "slidein",
+    },
+    "styles": [
+      {
+        "keyText": {
+          "loc": {
+            "column": 9,
+            "line": 2,
+          },
+          "value": "from",
+        },
+        "style": [
+          {
+            "keyLoc": {
+              "column": 18,
+              "line": 3,
+            },
+            "name": "transform",
+            "valLoc": {
+              "column": 35,
+              "line": 3,
+            },
+            "value": "translateX(0%)",
+          },
+        ],
+      },
+      {
+        "keyText": {
+          "loc": {
+            "column": 7,
+            "line": 6,
+          },
+          "value": "to",
+        },
+        "style": [
+          {
+            "keyLoc": {
+              "column": 18,
+              "line": 7,
+            },
+            "name": "transform",
+            "valLoc": {
+              "column": 37,
+              "line": 7,
+            },
+            "value": "translateX(100%)",
+          },
+        ],
+      },
+    ],
+    "type": "KeyframesRule",
+  },
+  {
+    "name": {
+      "loc": {
+        "column": 22,
+        "line": 11,
+      },
+      "value": "identifier",
+    },
+    "styles": [
+      {
+        "keyText": {
+          "loc": {
+            "column": 7,
+            "line": 12,
+          },
+          "value": "0%",
+        },
+        "style": [
+          {
+            "keyLoc": {
+              "column": 13,
+              "line": 12,
+            },
+            "name": "top",
+            "valLoc": {
+              "column": 17,
+              "line": 12,
+            },
+            "value": "0",
+          },
+          {
+            "keyLoc": {
+              "column": 22,
+              "line": 12,
+            },
+            "name": "left",
+            "valLoc": {
+              "column": 26,
+              "line": 12,
+            },
+            "value": "0",
+          },
+        ],
+      },
+      {
+        "keyText": {
+          "loc": {
+            "column": 8,
+            "line": 13,
+          },
+          "value": "30%",
+        },
+        "style": [
+          {
+            "keyLoc": {
+              "column": 14,
+              "line": 13,
+            },
+            "name": "top",
+            "valLoc": {
+              "column": 21,
+              "line": 13,
+            },
+            "value": "50px",
+          },
+        ],
+      },
+      {
+        "keyText": {
+          "loc": {
+            "column": 12,
+            "line": 14,
+          },
+          "value": "68%,72%",
+        },
+        "style": [
+          {
+            "keyLoc": {
+              "column": 20,
+              "line": 14,
+            },
+            "name": "left",
+            "valLoc": {
+              "column": 27,
+              "line": 14,
+            },
+            "value": "50px",
+          },
+        ],
+      },
+      {
+        "keyText": {
+          "loc": {
+            "column": 9,
+            "line": 15,
+          },
+          "value": "100%",
+        },
+        "style": [
+          {
+            "keyLoc": {
+              "column": 15,
+              "line": 15,
+            },
+            "name": "top",
+            "valLoc": {
+              "column": 23,
+              "line": 15,
+            },
+            "value": "100px",
+          },
+          {
+            "keyLoc": {
+              "column": 28,
+              "line": 15,
+            },
+            "name": "left",
+            "valLoc": {
+              "column": 35,
+              "line": 15,
+            },
+            "value": "100%",
+          },
+        ],
+      },
+    ],
+    "type": "KeyframesRule",
+  },
+  {
+    "name": {
+      "loc": {
+        "column": 16,
+        "line": 18,
+      },
+      "value": "test",
+    },
+    "styles": [
+      {
+        "keyText": {
+          "loc": {
+            "column": 15,
+            "line": 19,
+          },
+          "value": "60%,90%,100%",
+        },
+        "style": [
+          {
+            "keyLoc": {
+              "column": 6,
+              "line": 20,
+            },
+            "name": "a",
+            "valLoc": {
+              "column": 10,
+              "line": 20,
+            },
+            "value": "1",
+          },
+        ],
+      },
+      {
+        "keyText": {
+          "loc": {
+            "column": 6,
+            "line": 23,
+          },
+          "value": "60%",
+        },
+        "style": [
+          {
+            "keyLoc": {
+              "column": 6,
+              "line": 24,
+            },
+            "name": "b",
+            "valLoc": {
+              "column": 10,
+              "line": 24,
+            },
+            "value": "1",
+          },
+          {
+            "keyLoc": {
+              "column": 6,
+              "line": 25,
+            },
+            "name": "c",
+            "valLoc": {
+              "column": 10,
+              "line": 25,
+            },
+            "value": "3",
+          },
+        ],
+      },
+      {
+        "keyText": {
+          "loc": {
+            "column": 6,
+            "line": 28,
+          },
+          "value": "90%",
+        },
+        "style": [
+          {
+            "keyLoc": {
+              "column": 6,
+              "line": 29,
+            },
+            "name": "c",
+            "valLoc": {
+              "column": 10,
+              "line": 29,
+            },
+            "value": "5",
+          },
+        ],
+      },
+      {
+        "keyText": {
+          "loc": {
+            "column": 7,
+            "line": 32,
+          },
+          "value": "100%",
+        },
+        "style": [
+          {
+            "keyLoc": {
+              "column": 6,
+              "line": 33,
+            },
+            "name": "c",
+            "valLoc": {
+              "column": 13,
+              "line": 33,
+            },
+            "value": "none",
+          },
+        ],
+      },
+    ],
+    "type": "KeyframesRule",
+  },
+]
+`;
+
+exports[`no-space-within-name-value 1`] = `
+[
+  {
+    "selectorText": {
+      "loc": {
+        "column": 6,
+        "line": 1,
+      },
+      "value": ".test",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 22,
+          "line": 2,
+        },
+        "name": "border-left-style",
+        "valLoc": {
+          "column": 37,
+          "line": 2,
+        },
+        "value": "dashed double",
+      },
+      {
+        "keyLoc": {
+          "column": 21,
+          "line": 3,
+        },
+        "name": "border-top-style",
+        "valLoc": {
+          "column": 48,
+          "line": 3,
+        },
+        "value": "dotted solid ridge groove",
+      },
+      {
+        "keyLoc": {
+          "column": 17,
+          "line": 4,
+        },
+        "name": "border-color",
+        "valLoc": {
+          "column": 36,
+          "line": 4,
+        },
+        "value": "red blue blue red",
+      },
+      {
+        "keyLoc": {
+          "column": 21,
+          "line": 5,
+        },
+        "name": "border-top-width",
+        "valLoc": {
+          "column": 28,
+          "line": 5,
+        },
+        "value": "0.5px",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+]
+`;
+
+exports[`rules 1`] = `
+[
+  {
+    "selectorText": {
+      "loc": {
+        "column": 60,
+        "line": 1,
+      },
+      "value": ".test, .test-1 div:hover, #test-3 + .test-4[index-a ^= 123]",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 12,
+          "line": 2,
+        },
+        "name": "display",
+        "valLoc": {
+          "column": 19,
+          "line": 2,
+        },
+        "value": "flex",
+      },
+      {
+        "keyLoc": {
+          "column": 16,
+          "line": 3,
+        },
+        "name": "flex-shrink",
+        "valLoc": {
+          "column": 20,
+          "line": 3,
+        },
+        "value": "0",
+      },
+      {
+        "keyLoc": {
+          "column": 11,
+          "line": 4,
+        },
+        "name": "dsadas",
+        "valLoc": {
+          "column": 16,
+          "line": 4,
+        },
+        "value": "10",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 8,
+        "line": 7,
+      },
+      "value": ".test-1",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 12,
+          "line": 8,
+        },
+        "name": "display",
+        "valLoc": {
+          "column": 19,
+          "line": 8,
+        },
+        "value": "flex",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 24,
+        "line": 20,
+      },
+      "value": ".test-1 div p,.test-1 .test-6::not",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 20,
+          "line": 21,
+        },
+        "name": "flex-shrink",
+        "valLoc": {
+          "column": 24,
+          "line": 21,
+        },
+        "value": "0",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 12,
+        "line": 10,
+      },
+      "value": ".test-1 .test-2",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 20,
+          "line": 11,
+        },
+        "name": "flex-shrink",
+        "valLoc": {
+          "column": 24,
+          "line": 11,
+        },
+        "value": "0",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 16,
+        "line": 13,
+      },
+      "value": ".test-1 .test-2 .test-3",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 23,
+          "line": 14,
+        },
+        "name": "flex-group",
+        "valLoc": {
+          "column": 27,
+          "line": 14,
+        },
+        "value": "1",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 16,
+        "line": 25,
+      },
+      "value": ".test[cl^=data]",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 12,
+          "line": 26,
+        },
+        "name": "padding",
+        "valLoc": {
+          "column": 19,
+          "line": 26,
+        },
+        "value": "10px",
+      },
+      {
+        "keyLoc": {
+          "column": 17,
+          "line": 27,
+        },
+        "name": "padding-test",
+        "valLoc": {
+          "column": 24,
+          "line": 27,
+        },
+        "value": "10px",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 2,
+        "line": 30,
+      },
+      "value": "a",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 8,
+          "line": 31,
+        },
+        "name": "width",
+        "valLoc": {
+          "column": 26,
+          "line": 31,
+        },
+        "value": "calc(20px + 5%)",
+      },
+      {
+        "keyLoc": {
+          "column": 9,
+          "line": 32,
+        },
+        "name": "height",
+        "valLoc": {
+          "column": 44,
+          "line": 32,
+        },
+        "value": "calc((20px + 3em) - (20% - 5px))",
+      },
+      {
+        "keyLoc": {
+          "column": 9,
+          "line": 33,
+        },
+        "name": "margin",
+        "valLoc": {
+          "column": 41,
+          "line": 33,
+        },
+        "value": "calc((20px*3) + (20px/4))",
+      },
+      {
+        "keyLoc": {
+          "column": 10,
+          "line": 34,
+        },
+        "name": "padding",
+        "valLoc": {
+          "column": 36,
+          "line": 34,
+        },
+        "value": "calc(20px/5 + 3*5%)",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 11,
+        "line": 37,
+      },
+      "value": ":not(.div)",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 12,
+          "line": 38,
+        },
+        "name": "display",
+        "valLoc": {
+          "column": 19,
+          "line": 38,
+        },
+        "value": "flex",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 6,
+        "line": 41,
+      },
+      "value": ".test",
+    },
+    "style": [],
+    "type": "StyleRule",
+    "variables": {},
+  },
+]
+`;
+
+exports[`set-string-mark 1`] = `
+{
+  "errors": [],
+  "root": [
+    {
+      "selectorText": {
+        "loc": {
+          "column": 8,
+          "line": 1,
+        },
+        "value": ".test-1",
+      },
+      "style": [
+        {
+          "keyLoc": {
+            "column": 10,
+            "line": 2,
+          },
+          "name": "content",
+          "valLoc": {
+            "column": 24,
+            "line": 2,
+          },
+          "value": ""test\\"s 1"",
+        },
+      ],
+      "type": "StyleRule",
+      "variables": {},
+    },
+    {
+      "selectorText": {
+        "loc": {
+          "column": 8,
+          "line": 5,
+        },
+        "value": ".test-2",
+      },
+      "style": [
+        {
+          "keyLoc": {
+            "column": 10,
+            "line": 6,
+          },
+          "name": "content",
+          "valLoc": {
+            "column": 24,
+            "line": 6,
+          },
+          "value": ""test's 2"",
+        },
+      ],
+      "type": "StyleRule",
+      "variables": {},
+    },
+  ],
+}
+`;
+
+exports[`single-at-rule 1`] = `
+{
+  "errors": [],
+  "root": [
+    {
+      "selectorText": {
+        "loc": {
+          "column": 8,
+          "line": 3,
+        },
+        "value": ".test-1",
+      },
+      "style": [
+        {
+          "keyLoc": {
+            "column": 10,
+            "line": 4,
+          },
+          "name": "display",
+          "valLoc": {
+            "column": 19,
+            "line": 4,
+          },
+          "value": "linear",
+        },
+      ],
+      "type": "StyleRule",
+      "variables": {},
+    },
+    {
+      "selectorText": {
+        "loc": {
+          "column": 8,
+          "line": 9,
+        },
+        "value": ".test-2",
+      },
+      "style": [
+        {
+          "keyLoc": {
+            "column": 10,
+            "line": 10,
+          },
+          "name": "display",
+          "valLoc": {
+            "column": 19,
+            "line": 10,
+          },
+          "value": "linear",
+        },
+      ],
+      "type": "StyleRule",
+      "variables": {},
+    },
+    {
+      "href": "/common/utils.css",
+      "origin": "./common/utils.css",
+      "type": "ImportRule",
+    },
+    {
+      "selectorText": {
+        "loc": {
+          "column": 8,
+          "line": 15,
+        },
+        "value": ".test-3",
+      },
+      "style": [
+        {
+          "keyLoc": {
+            "column": 10,
+            "line": 16,
+          },
+          "name": "display",
+          "valLoc": {
+            "column": 19,
+            "line": 16,
+          },
+          "value": "linear",
+        },
+      ],
+      "type": "StyleRule",
+      "variables": {},
+    },
+  ],
+}
+`;
+
+exports[`slash-selector 1`] = `
+[
+  {
+    "selectorText": {
+      "loc": {
+        "column": 14,
+        "line": 1,
+      },
+      "value": ".text-\\[red\\]",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 8,
+          "line": 2,
+        },
+        "name": "color",
+        "valLoc": {
+          "column": 14,
+          "line": 2,
+        },
+        "value": "red",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+  {
+    "selectorText": {
+      "loc": {
+        "column": 17,
+        "line": 5,
+      },
+      "value": ".color-\\[\\#fff\\]",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 8,
+          "line": 6,
+        },
+        "name": "color",
+        "valLoc": {
+          "column": 15,
+          "line": 6,
+        },
+        "value": "#fff",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+]
+`;
+
+exports[`url-contain-identifier 1`] = `
+[
+  {
+    "selectorText": {
+      "loc": {
+        "column": 13,
+        "line": 1,
+      },
+      "value": ".backtop-btn",
+    },
+    "style": [
+      {
+        "keyLoc": {
+          "column": 19,
+          "line": 2,
+        },
+        "name": "background-image",
+        "valLoc": {
+          "column": 54,
+          "line": 2,
+        },
+        "value": "url('~/resource/back_top_btn.png')",
+      },
+      {
+        "keyLoc": {
+          "column": 9,
+          "line": 3,
+        },
+        "name": "height",
+        "valLoc": {
+          "column": 44,
+          "line": 3,
+        },
+        "value": "url('./resource/back_top_btn.png')",
+      },
+      {
+        "keyLoc": {
+          "column": 8,
+          "line": 4,
+        },
+        "name": "width",
+        "valLoc": {
+          "column": 42,
+          "line": 4,
+        },
+        "value": "url('/resource/back_top_btn.png')",
+      },
+    ],
+    "type": "StyleRule",
+    "variables": {},
+  },
+]
+`;

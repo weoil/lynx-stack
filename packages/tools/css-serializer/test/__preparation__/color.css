@@ -1,0 +1,96 @@
+
+a {
+  color: #ABCDEF;
+}
+
+.c-f5deb3 {
+  color: #f5deb3
+}
+
+.c-fff {
+  color: #fff
+}
+
+.c-ffffff {
+  color: #ffffff
+}
+
+.c-f5f5f5 {
+  color: #f5f5f5
+}
+
+.c-ff0 {
+  color: #ff0
+}
+
+.c-ffff00 {
+  color: #ffff00
+}
+
+.c-9acd32 {
+  color: #9acd32
+}
+
+.a {
+  color: hsl(0, 100%, 50%);
+}
+
+.b {
+  color: hsl(120, 100%, 50%);
+}
+
+.c {
+  color: hsl(210, 65%, 20%);
+}
+
+.d {
+  color: hsl(720, 150%, 50%);
+}
+
+a {
+  color: RED;
+}
+
+.chocolate {
+  color: chocolate;
+}
+
+.coral {
+  color: coral;
+}
+
+.cornflowerblue {
+  color: cornflowerblue;
+}
+
+.cornsilk {
+  color: cornsilk;
+}
+
+.crimson {
+  color: crimson;
+}
+
+a {
+  color: rgb(255, -10, 0);
+}
+
+b {
+  color: rgb(255, +17, 0);
+}
+
+c {
+  color: rgb(256, 256, 256);
+}
+
+d {
+  color: rgb(255 0 0 / 0.5);
+}
+
+.a {
+  color: #fff;
+  color: rgb(100, 100, 100);
+  color: rgba(100, 100, 100, .5);
+  color: hsl(0, 100%, 50%);
+  color: hsla(0, 100%, 50%, .5);
+}

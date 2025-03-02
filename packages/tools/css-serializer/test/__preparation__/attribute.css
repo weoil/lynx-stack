@@ -1,0 +1,24 @@
+[title="test"],
+[title="test"i],
+[title="test" i ],
+[title="123"],
+[title="test test"],
+[title="test test"i],
+[title="test test" i ],
+[title="-"],
+[title=""]
+{
+    p: v;
+}
+
+[name=test],
+[name=test i]
+{
+    p: v;
+}
+
+.test, .test-1 div:hover, #test-3 + .test-4[index-a ^= 123] {
+    display: flex;
+    flex-shrink: 0;
+    dsadas: 10;
+}

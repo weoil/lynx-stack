@@ -1,0 +1,12 @@
+# Case recovery - webpack: Step 2
+
+## Changed Files
+
+
+## Asset Files
+- Bundle: webpack-bundle.js
+
+## Manifest
+
+
+## Update
