@@ -3,6 +3,8 @@ on:
   pull_request:
     branches:
       - main
+    paths-ignore:
+      - "**/*.md"
   merge_group:
     types: [checks_requested]
 permissions:
@@ -119,6 +121,9 @@ jobs:
     secrets: inherit
     with:
       runs-on: lynx-ubuntu-24.04-medium
+  website:
+    needs: build
+    uses: ./.github/workflows/workflow-website.yml
   # Copied from https://github.com/swc-project/swc/blob/b192dc82e6a84bd30f159fb12ca8a216f41e8efb/.github/workflows/CI.yml#L491
   done:
     needs:
@@ -128,6 +133,7 @@ jobs:
       - test-react
       - test-rust
       - test-rspeedy
+      - website
     if: always()
     runs-on: lynx-ubuntu-24.04-medium
     name: Done
