@@ -1,8 +1,8 @@
 import { builtinEnvironments } from 'vitest/environments';
-import { LynxEnv } from '@lynx-js/test-environment';
+import { LynxTestingEnv } from '@lynx-js/testing-environment';
 
 const env = {
-  name: 'lynxEnv',
+  name: 'lynxTestingEnv',
   transformMode: 'web',
   async setup(global) {
     const fakeGlobal: {
@@ -11,12 +11,12 @@ const env = {
     await builtinEnvironments.jsdom.setup(fakeGlobal, {});
     global.jsdom = fakeGlobal.jsdom;
 
-    const lynxEnv = new LynxEnv();
-    global.lynxEnv = lynxEnv;
+    const lynxTestingEnv = new LynxTestingEnv();
+    global.lynxTestingEnv = lynxTestingEnv;
 
     return {
       teardown(global) {
-        delete global.lynxEnv;
+        delete global.lynxTestingEnv;
         delete global.jsdom;
       },
     };

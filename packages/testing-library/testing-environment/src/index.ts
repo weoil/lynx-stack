@@ -34,7 +34,7 @@ export type PickUnderscoreKeys<T> = Pick<T, FilterUnderscoreKeys<T>>;
 export type ElementTreeGlobals = PickUnderscoreKeys<ElementTree>;
 
 declare global {
-  var lynxEnv: LynxEnv;
+  var lynxTestingEnv: LynxTestingEnv;
   var elementTree: ElementTree;
   var __JS__: boolean;
   var __LEPUS__: boolean;
@@ -49,7 +49,7 @@ declare global {
   function onInjectMainThreadGlobals(globals: any): void;
   function onSwitchedToBackgroundThread(): void;
   function onSwitchedToMainThread(): void;
-  function onResetLynxEnv(): void;
+  function onResetLynxTestingEnv(): void;
   function onInitWorkletRuntime(): void;
 }
 
@@ -79,11 +79,11 @@ function __injectElementApi(target?: any) {
   target.__OnLifecycleEvent = (...args: any[]) => {
     const isMainThread = __MAIN_THREAD__;
 
-    globalThis.lynxEnv.switchToBackgroundThread();
+    globalThis.lynxTestingEnv.switchToBackgroundThread();
     globalThis.lynxCoreInject.tt.OnLifecycleEvent(...args);
 
     if (isMainThread) {
-      globalThis.lynxEnv.switchToMainThread();
+      globalThis.lynxTestingEnv.switchToMainThread();
     }
   };
   target._ReportError = () => {};
@@ -94,16 +94,16 @@ function createPolyfills() {
     callLepusMethod: (...rLynxChange: any[]) => {
       const isBackground = !__MAIN_THREAD__;
 
-      globalThis.lynxEnv.switchToMainThread();
+      globalThis.lynxTestingEnv.switchToMainThread();
       globalThis[rLynxChange[0]](rLynxChange[1]);
 
-      globalThis.lynxEnv.switchToBackgroundThread();
+      globalThis.lynxTestingEnv.switchToBackgroundThread();
       rLynxChange[2]();
-      globalThis.lynxEnv.switchToMainThread();
+      globalThis.lynxTestingEnv.switchToMainThread();
 
       // restore the original thread state
       if (isBackground) {
-        globalThis.lynxEnv.switchToBackgroundThread();
+        globalThis.lynxTestingEnv.switchToBackgroundThread();
       }
     },
     markTiming: () => {},
@@ -143,7 +143,7 @@ function createPolyfills() {
     data,
   }) => {
     const isMainThread = __MAIN_THREAD__;
-    lynxEnv.switchToBackgroundThread();
+    lynxTestingEnv.switchToBackgroundThread();
 
     // Ensure the code is running on the background thread
     ee.emit(type, {
@@ -151,7 +151,7 @@ function createPolyfills() {
     });
 
     if (isMainThread) {
-      lynxEnv.switchToMainThread();
+      lynxTestingEnv.switchToMainThread();
     }
   };
   // @ts-ignore
@@ -168,7 +168,7 @@ function createPolyfills() {
     options,
   ) {
     const isBackground = !__MAIN_THREAD__;
-    globalThis.lynxEnv.switchToMainThread();
+    globalThis.lynxTestingEnv.switchToMainThread();
 
     if (process.env['DEBUG']) {
       console.log('__LoadLepusChunk', chunkName, options);
@@ -182,7 +182,7 @@ function createPolyfills() {
 
     // restore the original thread state
     if (isBackground) {
-      globalThis.lynxEnv.switchToBackgroundThread();
+      globalThis.lynxTestingEnv.switchToBackgroundThread();
     }
 
     return ans;
@@ -360,11 +360,11 @@ function injectBackgroundThreadGlobals(target?: any, polyfills?: any) {
  * @example
  *
  * ```ts
- * import { LynxEnv } from '@lynx-js/test-environment';
+ * import { LynxTestingEnv } from '@lynx-js/testing-environment';
  *
- * const lynxEnv = new LynxEnv();
+ * const lynxTestingEnv = new LynxTestingEnv();
  *
- * lynxEnv.switchToMainThread();
+ * lynxTestingEnv.switchToMainThread();
  * // use the main thread Element PAPI
  * const page = __CreatePage('0', 0);
  * const view = __CreateView(0);
@@ -374,7 +374,7 @@ function injectBackgroundThreadGlobals(target?: any, polyfills?: any) {
  *
  * @public
  */
-export class LynxEnv {
+export class LynxTestingEnv {
   private originals: Map<string, any> = new Map();
   /**
    * The global object for the background thread.
@@ -382,11 +382,11 @@ export class LynxEnv {
    * @example
    *
    * ```ts
-   * import { LynxEnv } from '@lynx-js/test-environment';
+   * import { LynxTestingEnv } from '@lynx-js/testing-environment';
    *
-   * const lynxEnv = new LynxEnv();
+   * const lynxTestingEnv = new LynxTestingEnv();
    *
-   * lynxEnv.switchToBackgroundThread();
+   * lynxTestingEnv.switchToBackgroundThread();
    * // use the background thread global object
    * globalThis.lynxCoreInject.tt.OnLifecycleEvent(...args);
    * ```
@@ -398,11 +398,11 @@ export class LynxEnv {
    * @example
    *
    * ```ts
-   * import { LynxEnv } from '@lynx-js/test-environment';
+   * import { LynxTestingEnv } from '@lynx-js/testing-environment';
    *
-   * const lynxEnv = new LynxEnv();
+   * const lynxTestingEnv = new LynxTestingEnv();
    *
-   * lynxEnv.switchToMainThread();
+   * lynxTestingEnv.switchToMainThread();
    * // use the main thread global object
    * const page = globalThis.__CreatePage('0', 0);
    * const view = globalThis.__CreateView(0);
@@ -482,11 +482,11 @@ export class LynxEnv {
     });
     this.originals?.clear();
   }
-  resetLynxEnv() {
+  reset() {
     this.injectGlobals();
     // ensure old globals are replaced with new globals
     this.switchToMainThread();
     this.switchToBackgroundThread();
-    globalThis.onResetLynxEnv?.();
+    globalThis.onResetLynxTestingEnv?.();
   }
 }
