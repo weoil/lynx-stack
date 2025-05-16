@@ -52,6 +52,8 @@ export function bootWorkers(
         curBackgroundWorker.backgroundThreadWorker.terminate();
         backgroundWorkerContextCount[lynxGroupId] = 0;
         contextIdToBackgroundWorker[lynxGroupId] = undefined;
+      } else if (backgroundWorkerContextCount[lynxGroupId]) {
+        backgroundWorkerContextCount[lynxGroupId]--;
       }
     },
   };
