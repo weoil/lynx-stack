@@ -1,5 +1,36 @@
 # @lynx-js/web-elements
 
+## 0.7.1
+
+### Patch Changes
+
+- fix(web): x-swiper-item threshold updated to 20 ([#639](https://github.com/lynx-family/lynx-stack/pull/639))
+
+- fix: In React19, setter and getter functions are treated as properties, making it impossible to retrieve the current value via attributes. ([#639](https://github.com/lynx-family/lynx-stack/pull/639))
+
+## 0.7.0
+
+### Minor Changes
+
+- fix: ([#629](https://github.com/lynx-family/lynx-stack/pull/629))
+
+  - typo of `initial-scroll-offset` in scroll-view.
+  - scroll-view's `initial-scroll-index` is changed to `initial-scroll-to-index`.
+
+### Patch Changes
+
+- fix: x-image border-radius setting has no effect. ([#638](https://github.com/lynx-family/lynx-stack/pull/638))
+
+- perf: late evaluate document.font.ready ([#604](https://github.com/lynx-family/lynx-stack/pull/604))
+
+- perf: improve raw-text performance ([#601](https://github.com/lynx-family/lynx-stack/pull/601))
+
+- fix: the scroll-x field of scroll-view needs to be handled correctly. ([#635](https://github.com/lynx-family/lynx-stack/pull/635))
+
+  Before this, scroll-x of '' would result in no scrolling along x-axis.
+
+- feat: x-list supports `need-visible-item-info`, now you can get visible cells info in `scroll`、`scrolltoupper`、`scrolltolower` event. ([#595](https://github.com/lynx-family/lynx-stack/pull/595))
+
 ## 0.6.0
 
 ### Minor Changes

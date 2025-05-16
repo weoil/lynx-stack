@@ -25,6 +25,7 @@ import {
   switchExposureService,
 } from './MainThreadRuntime.js';
 
+const moduleCache: Record<string, LynxJSModule> = {};
 export function loadMainThread(
   backgroundThreadRpc: Rpc,
   docu: Pick<Document, 'append' | 'createElement' | 'addEventListener'>,
@@ -61,10 +62,23 @@ export function loadMainThread(
     const { styleInfo, pageConfig, customSections, cardType, lepusCode } =
       template;
     markTimingInternal('decode_start');
-    await import(
-      /* webpackIgnore: true */ template.lepusCode.root
+    const lepusCodeEntries = await Promise.all(
+      Object.entries(lepusCode).map(async ([name, url]) => {
+        const cachedModule = moduleCache[url];
+        if (cachedModule) {
+          return [name, cachedModule] as [string, LynxJSModule];
+        } else {
+          Object.assign(globalThis, { module: {} });
+          await import(/* webpackIgnore: true */ url);
+          const module = globalThis.module as LynxJSModule;
+          Object.assign(globalThis, { module: {} });
+          moduleCache[url] = module;
+          return [name, module] as [string, LynxJSModule];
+        }
+      }),
     );
-    const entry = (globalThis.module as LynxJSModule).exports!;
+    const lepusCodeLoaded = Object.fromEntries(lepusCodeEntries);
+    const entry = lepusCodeLoaded['root']!.exports;
     const jsContext = new LynxCrossThreadContext({
       rpc: backgroundThreadRpc,
       receiveEventEndpoint: dispatchJSContextOnMainThreadEndpoint,
@@ -78,7 +92,7 @@ export function loadMainThread(
       globalProps,
       pageConfig,
       styleInfo,
-      lepusCode,
+      lepusCode: lepusCodeLoaded,
       docu,
       callbacks: {
         mainChunkReady: () => {
@@ -154,7 +168,7 @@ export function loadMainThread(
         publicComponentEvent,
         postExposure,
       },
-    }).globalThis;
+    });
     markTimingInternal('decode_end');
     entry!(runtime);
     jsContext.__start(); // start the jsContext after the runtime is created

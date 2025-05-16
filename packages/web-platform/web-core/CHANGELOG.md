@@ -1,5 +1,76 @@
 # @lynx-js/web-core
 
+## 0.13.1
+
+### Patch Changes
+
+- fix: some inline style properties cause crash ([#647](https://github.com/lynx-family/lynx-stack/pull/647))
+
+  add support for the following css properties
+
+  - mask
+  - mask-repeat
+  - mask-position
+  - mask-clip
+  - mask-origin
+  - mask-size
+  - gap
+  - column-gap
+  - row-gap
+  - image-rendering
+  - hyphens
+  - offset-path
+  - offset-distance
+
+- feat: support touch events for MTS ([#641](https://github.com/lynx-family/lynx-stack/pull/641))
+
+  now we support
+
+  - main-thread:bindtouchstart
+  - main-thread:bindtouchend
+  - main-thread:bindtouchmove
+  - main-thread:bindtouchcancel
+
+- feat: add SystemInfo.screenWidth and SystemInfo.screenHeight ([#641](https://github.com/lynx-family/lynx-stack/pull/641))
+
+- Updated dependencies [[`c9ccad6`](https://github.com/lynx-family/lynx-stack/commit/c9ccad6b574c98121149d3e9d4a9a7e97af63d91), [`9ad394e`](https://github.com/lynx-family/lynx-stack/commit/9ad394ea9ef28688a3b810b4051868b2a28eb7de), [`f4cfb70`](https://github.com/lynx-family/lynx-stack/commit/f4cfb70606d46cd4017254c326095432f9c6bcb8), [`c9ccad6`](https://github.com/lynx-family/lynx-stack/commit/c9ccad6b574c98121149d3e9d4a9a7e97af63d91), [`839d61c`](https://github.com/lynx-family/lynx-stack/commit/839d61c8a329ed1e265fe2edc12a702e9592f743)]:
+  - @lynx-js/offscreen-document@0.0.2
+  - @lynx-js/web-mainthread-apis@0.13.1
+  - @lynx-js/web-worker-runtime@0.13.1
+  - @lynx-js/web-constants@0.13.1
+  - @lynx-js/web-worker-rpc@0.13.1
+
+## 0.13.0
+
+### Patch Changes
+
+- refactor: isolate SystemInfo ([#628](https://github.com/lynx-family/lynx-stack/pull/628))
+
+  Never assign `SystemInfo` on worker's self object.
+
+- feat: support thread strategy `all-on-ui` ([#625](https://github.com/lynx-family/lynx-stack/pull/625))
+
+  ```html
+  <lynx-view thread-strategy="all-on-ui"></lynx-view>
+  ```
+
+  This will make the lynx's main-thread run on the UA's main thread.
+
+  Note that the `all-on-ui` does not support the HMR & chunk splitting yet.
+
+- fix(web): css selector not work for selectors with combinator and pseudo-class on WEB ([#608](https://github.com/lynx-family/lynx-stack/pull/608))
+
+  like `.parent > :not([hidden]) ~ :not([hidden])`
+
+  you will need to upgrade your `react-rsbuild-plugin` to fix this issue
+
+- Updated dependencies [[`4ee0465`](https://github.com/lynx-family/lynx-stack/commit/4ee0465f6e5846a0d038b49d2a7c95e87c9e5c77), [`74b5bd1`](https://github.com/lynx-family/lynx-stack/commit/74b5bd15339b70107a7c42525494da46e8f8f6bd), [`06bb78a`](https://github.com/lynx-family/lynx-stack/commit/06bb78a6b93d4a7be7177a6269dd4337852ce90d), [`5a3d9af`](https://github.com/lynx-family/lynx-stack/commit/5a3d9afe52ba639987db124ca35580261e0718b5), [`5269cab`](https://github.com/lynx-family/lynx-stack/commit/5269cabef7609159bdd0dd14a03c5da667907424), [`74b5bd1`](https://github.com/lynx-family/lynx-stack/commit/74b5bd15339b70107a7c42525494da46e8f8f6bd), [`2b069f8`](https://github.com/lynx-family/lynx-stack/commit/2b069f8786c95bdb9ac1f35091f05f7fd3b52225)]:
+  - @lynx-js/web-mainthread-apis@0.13.0
+  - @lynx-js/web-worker-runtime@0.13.0
+  - @lynx-js/web-constants@0.13.0
+  - @lynx-js/offscreen-document@0.0.1
+  - @lynx-js/web-worker-rpc@0.13.0
+
 ## 0.12.0
 
 ### Minor Changes

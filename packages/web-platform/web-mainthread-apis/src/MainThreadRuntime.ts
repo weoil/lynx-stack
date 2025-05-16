@@ -57,7 +57,7 @@ export interface MainThreadConfig {
   callbacks: MainThreadRuntimeCallbacks;
   styleInfo: StyleInfo;
   customSections: LynxTemplate['customSections'];
-  lepusCode: LynxTemplate['lepusCode'];
+  lepusCode: Record<string, LynxJSModule>;
   browserConfig: BrowserConfig;
   tagMap: Record<string, string>;
   docu: Pick<Document, 'append' | 'createElement' | 'addEventListener'>;
@@ -147,7 +147,7 @@ export class MainThreadRuntime {
     this.__OnLifecycleEvent = this.config.callbacks.__OnLifecycleEvent;
     this.SystemInfo = {
       ...systemInfo,
-      pixelRatio: config.browserConfig.pixelRatio,
+      ...config.browserConfig,
     };
     /**
      * Start the exposure service
@@ -205,9 +205,20 @@ export class MainThreadRuntime {
    */
   __lynxGlobalBindingValues: Record<string, any> = {};
 
-  get globalThis() {
-    return this;
-  }
+  globalThis = new Proxy(this, {
+    get: (target, prop) => {
+      // @ts-expect-error
+      return target[prop] ?? globalThis[prop];
+    },
+    set: (target, prop, value) => {
+      // @ts-expect-error
+      target[prop] = value;
+      return true;
+    },
+    ownKeys(target) {
+      return Reflect.ownKeys(target).filter((key) => key !== 'globalThis');
+    },
+  });
 
   SystemInfo: typeof systemInfo;
 
@@ -226,24 +237,14 @@ export class MainThreadRuntime {
   __OnLifecycleEvent: (lifeCycleEvent: Cloneable) => void;
 
   __LoadLepusChunk: (path: string) => boolean = (path) => {
-    try {
-      // @ts-expect-error
-      if (self.WorkerGlobalScope) {
-        const lepusChunkUrl = this.config.lepusCode[`${path}`];
-        if (lepusChunkUrl) path = lepusChunkUrl;
-        // @ts-expect-error
-        importScripts(path);
-        const entry = (globalThis.module as LynxJSModule).exports;
-        entry?.(this);
-      } else {
-        throw new Error(
-          'importing scripts synchronously is only available for the multi-thread running mode',
-        );
-      }
+    const lepusModule = this.config.lepusCode[`${path}`];
+    if (lepusModule) {
+      const entry = lepusModule.exports;
+      entry?.(this);
       return true;
-    } catch {
+    } else {
+      return false;
     }
-    return false;
   };
 
   __FlushElementTree = (
@@ -252,7 +253,7 @@ export class MainThreadRuntime {
   ) => {
     const timingFlags = this._timingFlags;
     this._timingFlags = [];
-    if (this._page && !this._page.parentElement) {
+    if (this._page && !this._page.parentNode) {
       this._rootDom.append(this._page);
     }
     this.config.callbacks.flushElementTree(options, timingFlags);

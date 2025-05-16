@@ -13,7 +13,7 @@ import { RuntimeGlobals } from '@lynx-js/webpack-runtime-globals';
  */
 interface RuntimeWrapperWebpackPluginOptions {
   /**
-   * {@inheritdoc @lynx-js/template-webpack-plugin#LynxTemplatePluginOptions.targetSdkVersion}
+   * {@inheritdoc @lynx-js/react-rsbuild-plugin#PluginReactLynxOptions.targetSdkVersion}
    */
   targetSdkVersion: string;
   /**
@@ -37,6 +37,11 @@ interface RuntimeWrapperWebpackPluginOptions {
    * The variables to be injected into the chunk.
    */
   injectVars?: ((vars: string[]) => string[]) | string[];
+
+  /**
+   * {@inheritdoc @lynx-js/react-rsbuild-plugin#PluginReactLynxOptions.experimental_isLazyBundle}
+   */
+  experimental_isLazyBundle?: boolean;
 }
 
 const defaultInjectVars = [
@@ -54,7 +59,33 @@ const defaultInjectVars = [
   'Behavior',
   'LynxJSBI',
   'lynx',
+
+  // BOM API
   'window',
+  'document',
+  'frames',
+  'self',
+  'location',
+  'navigator',
+  'localStorage',
+  'history',
+  'Caches',
+  'screen',
+  'alert',
+  'confirm',
+  'prompt',
+  'fetch',
+  'XMLHttpRequest',
+  '__WebSocket__', // We would provide `WebSocket` using `ProvidePlugin`
+  'webkit',
+  'Reporter',
+  'print',
+  '__Function__', // We should allow using `Function`
+  'global',
+
+  // Lynx API
+  'requestAnimationFrame',
+  'cancelAnimationFrame',
 ];
 
 /**
@@ -79,6 +110,7 @@ class RuntimeWrapperWebpackPlugin {
     test: /\.js$/,
     bannerType: () => 'script',
     injectVars: defaultInjectVars,
+    experimental_isLazyBundle: false,
   });
 
   /**
@@ -109,7 +141,7 @@ class RuntimeWrapperWebpackPluginImpl {
     public compiler: Compiler,
     public options: RuntimeWrapperWebpackPluginOptions,
   ) {
-    const { targetSdkVersion, test } = options;
+    const { targetSdkVersion, test, experimental_isLazyBundle } = options;
     const { BannerPlugin } = compiler.webpack;
 
     const isDev = process.env['NODE_ENV'] === 'development'
@@ -138,7 +170,12 @@ class RuntimeWrapperWebpackPluginImpl {
             moduleId: '[name].js',
             targetSdkVersion,
           })
-          + (isDev
+          // In standalone lazy bundle mode, the lazy bundle will
+          // also has chunk.id "main", it will be conflict with the
+          // consumer project.
+          // We disable it for standalone lazy bundle since we do not
+          // support HMR for standalone lazy bundle now.
+          + (isDev && !experimental_isLazyBundle
             ? lynxChunkEntries(JSON.stringify(chunk.id))
             : '');
       },
@@ -231,7 +268,9 @@ lynx.targetSdkVersion=lynx.targetSdkVersion||${
       JSON.stringify(targetSdkVersion)
     };
 ${overrideRuntimePromise ? `var Promise = lynx.Promise;` : ''}
-var fetch = lynx.fetch;
+fetch = fetch || lynx.fetch;
+requestAnimationFrame = requestAnimationFrame || lynx.requestAnimationFrame;
+cancelAnimationFrame = cancelAnimationFrame || lynx.cancelAnimationFrame;
 `
   );
 };

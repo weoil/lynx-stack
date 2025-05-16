@@ -135,9 +135,13 @@
     // lighthouse CI
     "lhci",
     "lh",
+    "queueMicrotask",
+    "rustup", // Rust installer/manager
   ],
   // Glob
   "ignorePaths": [
+    // cSpell:disable-next-line
+    ".cargo/nextest.toml",
     ".gitignore",
     // Tests
     "coverage",

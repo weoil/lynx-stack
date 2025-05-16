@@ -4,6 +4,7 @@
 import { swipe, dragAndHold } from './utils.js';
 import { test, expect } from './coverage-fixture.js';
 import type { Page } from '@playwright/test';
+const ALL_ON_UI = !!process.env['ALL_ON_UI'];
 
 const wait = async (ms: number) => {
   await new Promise((resolve) => {
@@ -116,11 +117,12 @@ test.describe('reactlynx3 tests', () => {
     test('basic-setstate-in-constructor', async ({ page }, { title }) => {
       await goto(page, title);
       await wait(200);
-      await expectHasText(page, 'awesome');
+      const target = page.locator('#target');
+      await expect(target).toHaveCSS('background-color', 'rgb(0, 128, 0)'); // green
     });
     test('basic-setsate-with-cb', async ({ page }, { title }) => {
       await goto(page, title);
-      await wait(300);
+      await wait(400);
       await expectHasText(page, 'awesome');
       await expectNoText(page, 'success');
     });
@@ -293,6 +295,35 @@ test.describe('reactlynx3 tests', () => {
       await wait(100);
       expect(eventHandlerTriggered).toBe(true);
     });
+
+    test(
+      'basic-mts-bindtouchstart',
+      async ({ page, browserName, context }, { title }) => {
+        test.skip(browserName !== 'chromium', 'not support CDPsession');
+        await goto(page, title);
+        await wait(300);
+        const cdpSession = await context.newCDPSession(page);
+        await swipe(cdpSession, {
+          x: 20,
+          y: 20,
+          xDistance: 10,
+          yDistance: 0,
+        });
+        expect(page.locator('#target1'), 'has touches').toHaveCSS(
+          'background-color',
+          'rgb(0, 128, 0)',
+        ); // green
+        expect(page.locator('#target2'), 'has target touches').toHaveCSS(
+          'background-color',
+          'rgb(0, 128, 0)',
+        ); // green
+        expect(page.locator('#target3'), 'has changed touches').toHaveCSS(
+          'background-color',
+          'rgb(0, 128, 0)',
+        ); // green
+      },
+    );
+
     test(
       'basic-mts-bindtap-change-element-background',
       async ({ page }, { title }) => {
@@ -353,6 +384,16 @@ test.describe('reactlynx3 tests', () => {
       expect(computedStyle.backgroundColor).toBe('rgb(255, 192, 203)');
     });
     test('basic-color-not-inherit', async ({ page }, { title }) => {
+      await goto(page, title);
+      await wait(100);
+      await expect(page.locator('#target')).toHaveCSS('color', 'rgb(0, 0, 0)');
+    });
+    test('basic-globalThis-property-bts', async ({ page }, { title }) => {
+      await goto(page, title);
+      await wait(100);
+      await expect(page.locator('#target')).toHaveCSS('color', 'rgb(0, 0, 0)');
+    });
+    test('basic-globalThis-property-mts', async ({ page }, { title }) => {
       await goto(page, title);
       await wait(100);
       await expect(page.locator('#target')).toHaveCSS('color', 'rgb(0, 0, 0)');
@@ -457,6 +498,16 @@ test.describe('reactlynx3 tests', () => {
       },
     );
 
+    test(
+      'api-SystemInfo-height-width',
+      async ({ page }, { title }) => {
+        await goto(page, title);
+        await wait(200);
+        const target = page.locator('#target');
+        await expect(target).toHaveCSS('background-color', 'rgb(0, 128, 0)'); // green
+      },
+    );
+
     test('api-initdata', async ({ page }, { title }) => {
       await goto(page, title);
       await wait(100);
@@ -505,6 +556,15 @@ test.describe('reactlynx3 tests', () => {
         });
       });
       await wait(50);
+      await expect(target).toHaveCSS(
+        'background-color',
+        'rgb(0, 128, 0)',
+      ); // green;
+    });
+
+    test('api-inject-style-rules', async ({ page }, { title }) => {
+      await goto(page, title);
+      const target = page.locator('#target');
       await expect(target).toHaveCSS(
         'background-color',
         'rgb(0, 128, 0)',
@@ -577,14 +637,14 @@ test.describe('reactlynx3 tests', () => {
       await goto(page, title);
       const target = page.locator('#target');
       await expect(target).toHaveCSS('background-color', 'rgb(255, 192, 203)'); // pink
-      expect(page.workers().length).toStrictEqual(3);
+      expect(page.workers().length).toStrictEqual(ALL_ON_UI ? 2 : 3);
     });
 
     test('api-preheat-at-least-one', async ({ page }, { title }) => {
       await goto(page, title);
       const target = page.locator('#target');
       await expect(target).toHaveCSS('background-color', 'rgb(255, 192, 203)'); // pink
-      expect(page.workers().length).toBe(3);
+      expect(page.workers().length).toBe(ALL_ON_UI ? 2 : 3);
       await page.evaluate(() => {
         document.body.querySelector('lynx-view')?.remove();
       });
@@ -886,13 +946,14 @@ test.describe('reactlynx3 tests', () => {
     });
     test('api-sendGlobalEvent', async ({ page }, { title }) => {
       await goto(page, title);
+      await wait(100);
       const target = page.locator('#target');
       await expect(target).toHaveCSS('background-color', 'rgb(255, 192, 203)'); // pink
       await page.evaluate(() => {
         // @ts-expect-error
         globalThis.lynxView.sendGlobalEvent('event-test', ['change']);
       });
-      await wait(100);
+      await wait(200);
       await expect(target).toHaveCSS(
         'background-color',
         'rgb(0, 128, 0)',
@@ -916,6 +977,15 @@ test.describe('reactlynx3 tests', () => {
       await wait(100);
       await expect(result).toHaveCSS('background-color', 'rgb(0, 128, 0)'); // green
     });
+    test(
+      'api-queueMicrotask',
+      async ({ page }, { title }) => {
+        await goto(page, title);
+        await wait(200);
+        const target = page.locator('#target');
+        await expect(target).toHaveCSS('background-color', 'rgb(0, 128, 0)'); // green
+      },
+    );
   });
 
   test.describe('configs', () => {
@@ -1064,6 +1134,7 @@ test.describe('reactlynx3 tests', () => {
     test(
       'config-splitchunk-single-vendor',
       async ({ page }, { title }) => {
+        test.skip(ALL_ON_UI, 'main thread do not support importScript');
         await goto(page, title, undefined, true);
         await wait(1500);
         const target = page.locator('#target');
@@ -1073,6 +1144,7 @@ test.describe('reactlynx3 tests', () => {
     test(
       'config-splitchunk-split-by-experience',
       async ({ page }, { title }) => {
+        test.skip(ALL_ON_UI, 'main thread do not support importScript');
         await goto(page, title, undefined, true);
         await wait(1500);
         const target = page.locator('#target');
@@ -1082,6 +1154,7 @@ test.describe('reactlynx3 tests', () => {
     test(
       'config-splitchunk-split-by-module',
       async ({ page }, { title }) => {
+        test.skip(ALL_ON_UI, 'main thread do not support importScript');
         await goto(page, title, undefined, true);
         await wait(1500);
         const target = page.locator('#target');
@@ -2031,6 +2104,7 @@ test.describe('reactlynx3 tests', () => {
         async ({ page, browserName }, { title }) => {
           test.skip(browserName === 'firefox', 'flaky');
           await goto(page, title);
+          await wait(100);
           await page.locator('.focus').click({ force: true });
           await wait(100);
           const result = await page.locator('.result').first().innerText();
@@ -2042,6 +2116,7 @@ test.describe('reactlynx3 tests', () => {
       // input/bindfocus test-case start
       test('basic-element-x-input-bindfocus', async ({ page }, { title }) => {
         await goto(page, title);
+        await wait(100);
         await page.locator('input').click({ force: true });
         await wait(100);
         const result = await page.locator('.result').first().innerText();
@@ -2052,6 +2127,7 @@ test.describe('reactlynx3 tests', () => {
       // input/bindconfirm test-case start
       test('basic-element-x-input-bindconfirm', async ({ page }, { title }) => {
         await goto(page, title);
+        await wait(100);
         await page.locator('input').press('Enter');
         await wait(100);
         const result = await page.locator('.result').first().innerText();

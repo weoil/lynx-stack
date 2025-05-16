@@ -66,9 +66,24 @@ export async function createNativeApp(config: {
     return {
       init: (lynxCoreInject) => {
         lynxCoreInject.tt.lynxCoreInject = lynxCoreInject;
-        lynxCoreInject.tt.globalThis ??= lynxCoreInject;
+        lynxCoreInject.tt.globalThis ??= new Proxy(lynxCoreInject, {
+          get(target, prop) {
+            // @ts-expect-error
+            return target[prop] ?? globalThis[prop];
+          },
+          set(target, prop, value) {
+            // @ts-expect-error
+            target[prop] = value;
+            return true;
+          },
+          ownKeys(target) {
+            return Reflect.ownKeys(target).filter((key) =>
+              key !== 'globalThis'
+            );
+          },
+        });
         Object.assign(lynxCoreInject.tt, {
-          SystemInfo: { ...systemInfo, pixelRatio: browserConfig.pixelRatio },
+          SystemInfo: { ...systemInfo, ...browserConfig },
         });
         const ret = entry?.(lynxCoreInject.tt);
         return ret;

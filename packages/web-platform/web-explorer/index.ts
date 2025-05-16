@@ -4,8 +4,6 @@ import '@lynx-js/web-core/index.css';
 import '@lynx-js/web-elements/index.css';
 import '@lynx-js/web-elements/all';
 
-import QrScanner from 'qr-scanner';
-
 const video = document.getElementById('qr-scanner') as HTMLVideoElement;
 let lynxView = document.getElementById('lynx-view') as LynxView;
 const backButton = document.getElementById('back-button') as HTMLDivElement;
@@ -17,6 +15,7 @@ backButton.addEventListener('click', () => {
   setLynxViewUrl(homepage);
 });
 
+// @ts-expect-error
 const qrScanner = new QrScanner(video, (result) => {
   console.log('qr', result);
   lynxView.style.visibility = 'visible';
@@ -27,24 +26,6 @@ const qrScanner = new QrScanner(video, (result) => {
   highlightScanRegion: true,
   highlightCodeOutline: true,
 });
-
-const nativeModulesMap = {
-  ExplorerModule: URL.createObjectURL(
-    new Blob(
-      [`export default function(NativeModules, NativeModulesCall) {
-    return {
-      openSchema(value) {
-        NativeModulesCall('openSchema', value);
-      },
-      openScan() {
-        NativeModulesCall('openScan');
-      },
-    };
-  }`],
-      { type: 'text/javascript' },
-    ),
-  ),
-};
 
 setLynxViewUrl(homepage);
 window.addEventListener('message', (ev) => {
@@ -65,7 +46,6 @@ function setLynxViewUrl(url: string) {
   const theme = window.matchMedia('(prefers-color-scheme: dark)').matches
     ? 'Dark'
     : 'Light';
-  lynxView.nativeModulesMap = nativeModulesMap;
   lynxView.onNativeModulesCall = (nm, data) => {
     if (nm === 'openScan') {
       lynxView.style.visibility = 'hidden';

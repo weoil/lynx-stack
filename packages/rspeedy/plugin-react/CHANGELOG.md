@@ -1,5 +1,56 @@
 # @lynx-js/react-rsbuild-plugin
 
+## 0.9.9
+
+### Patch Changes
+
+- Fix runtime error: "SyntaxError: Identifier 'i' has already been declared". ([#651](https://github.com/lynx-family/lynx-stack/pull/651))
+
+- Enable runtime profiling when `performance.profile` is set to true. ([#722](https://github.com/lynx-family/lynx-stack/pull/722))
+
+- fix: resolve page crash on development mode when enabling `experimental_isLazyBundle: true` ([#653](https://github.com/lynx-family/lynx-stack/pull/653))
+
+- Support `@lynx-js/react` v0.108.0. ([#649](https://github.com/lynx-family/lynx-stack/pull/649))
+
+- Updated dependencies [[`ea4da1a`](https://github.com/lynx-family/lynx-stack/commit/ea4da1af0ff14e2480e49f7004a3a2616594968d), [`ca15dda`](https://github.com/lynx-family/lynx-stack/commit/ca15dda4122c5eedc1fd82cefb0cd9af7fdaa47e), [`f8d369d`](https://github.com/lynx-family/lynx-stack/commit/f8d369ded802f8d7b9b859b1f150015d65773b0f), [`ea4da1a`](https://github.com/lynx-family/lynx-stack/commit/ea4da1af0ff14e2480e49f7004a3a2616594968d)]:
+  - @lynx-js/react-webpack-plugin@0.6.13
+  - @lynx-js/runtime-wrapper-webpack-plugin@0.0.10
+  - @lynx-js/react-alias-rsbuild-plugin@0.9.9
+  - @lynx-js/react-refresh-webpack-plugin@0.3.2
+
+## 0.9.8
+
+### Patch Changes
+
+- Support @lynx-js/react v0.107.0 ([#438](https://github.com/lynx-family/lynx-stack/pull/438))
+
+- fix(web): `:root` not work on web platform ([#607](https://github.com/lynx-family/lynx-stack/pull/607))
+
+  Note: To solve this issue, you need to upgrade your `react-rsbuild-plugin`
+
+- Refactor: Replace built-in `background-only` implementation with npm package ([#602](https://github.com/lynx-family/lynx-stack/pull/602))
+
+  Previously we maintained custom files:
+
+  - `empty.ts` for background thread
+  - `error.ts` for main thread validation
+
+  Now adopting the standard `background-only` npm package
+
+- fix(web): css selector not work for selectors with combinator and pseudo-class on WEB ([#608](https://github.com/lynx-family/lynx-stack/pull/608))
+
+  like `.parent > :not([hidden]) ~ :not([hidden])`
+
+  you will need to upgrade your `react-rsbuild-plugin` to fix this issue
+
+- Updated dependencies [[`6a5fc80`](https://github.com/lynx-family/lynx-stack/commit/6a5fc80716e668bacf4ce4ff59c569683ace0ba2), [`06bb78a`](https://github.com/lynx-family/lynx-stack/commit/06bb78a6b93d4a7be7177a6269dd4337852ce90d), [`f3afaf6`](https://github.com/lynx-family/lynx-stack/commit/f3afaf6c7919d3fe60ac2dfcd8af77178436f785), [`bf9c685`](https://github.com/lynx-family/lynx-stack/commit/bf9c68501205b038043e2f315e0a690c8bc46829), [`5269cab`](https://github.com/lynx-family/lynx-stack/commit/5269cabef7609159bdd0dd14a03c5da667907424)]:
+  - @lynx-js/react-webpack-plugin@0.6.12
+  - @lynx-js/web-webpack-plugin@0.6.6
+  - @lynx-js/template-webpack-plugin@0.6.10
+  - @lynx-js/react-alias-rsbuild-plugin@0.9.8
+  - @lynx-js/react-refresh-webpack-plugin@0.3.2
+  - @lynx-js/css-extract-webpack-plugin@0.5.3
+
 ## 0.9.7
 
 ### Patch Changes
